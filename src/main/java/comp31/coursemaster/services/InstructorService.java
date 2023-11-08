@@ -2,10 +2,10 @@ package comp31.coursemaster.services;
 
 import java.util.List;
 
-import comp31.coursemaster.model.entities.Announcement;
-import comp31.coursemaster.model.entities.Assignment;
-import comp31.coursemaster.model.entities.Course;
-import comp31.coursemaster.model.entities.Student;
+import comp31.coursemaster.controllers.model.entities.Announcement;
+import comp31.coursemaster.controllers.model.entities.Assignment;
+import comp31.coursemaster.controllers.model.entities.Course;
+import comp31.coursemaster.controllers.model.entities.Student;
 
 public class InstructorService {
     public List<Course> GetAssignedCourses() {
