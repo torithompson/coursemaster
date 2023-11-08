@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <title>Course Master</title>
 </head>
+
 <body>
-    <a href="/student">Student</a>
+    <div th:insert="fragments/frags :: header" class="header">
+    </div>
 </body>
+
 </html>
