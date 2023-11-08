@@ -1,0 +1,22 @@
+package comp31.coursemaster.controllers;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import comp31.coursemaster.services.AdminService;
+
+@Controller
+public class AdminController {
+
+    AdminService adminService;
+
+    public AdminController(AdminService adminService) {
+        this.adminService = adminService;
+    }
+
+    @GetMapping("/admin")
+    public String getAdmin() {
+        return "admin";
+    }
+
+}
