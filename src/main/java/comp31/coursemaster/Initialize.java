@@ -8,5 +8,6 @@ public class Initialize implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         // Add your initialization code here
+        
     }
 }
