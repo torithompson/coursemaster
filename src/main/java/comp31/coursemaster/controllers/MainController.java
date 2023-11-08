@@ -14,11 +14,6 @@ public class MainController {
         this.loginService = loginService;
     }
 
-    @GetMapping("/")
-    public String getRoot() {
-        return "index";
-    }
-
     @PostMapping("/login")
     public String getLogin() {
         String validatedLogin = loginService.login("admin", "password");
