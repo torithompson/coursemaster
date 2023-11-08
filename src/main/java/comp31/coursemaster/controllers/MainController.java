@@ -14,9 +14,9 @@ public class MainController {
         this.loginService = loginService;
     }
 
-    // @PostMapping("/login")
-    // public String getLogin() {
-    //     String validatedLogin = loginService.login("admin", "password");
-    //     return "login";
-    // }
+    @PostMapping("/login")
+    public String getLogin() {
+        String validatedLogin = loginService.login("admin", "password");
+        return "login";
+    }
 }
