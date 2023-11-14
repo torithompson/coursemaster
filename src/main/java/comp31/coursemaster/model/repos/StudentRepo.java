@@ -4,7 +4,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import comp31.coursemaster.model.entities.Student;
 
-public interface StudentRepo extends CrudRepository<comp31.coursemaster.model.entities.Student, Integer> {
+public interface StudentRepo extends CrudRepository<Student, Integer> {
     public Student getStudentById(int id);
 
     public Student updateStudent(Student student);
