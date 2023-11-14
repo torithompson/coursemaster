@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 public class Announcement {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    Integer Id;
+    Integer id;
     String title;
     String body;
     String date;

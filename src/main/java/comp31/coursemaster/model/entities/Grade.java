@@ -13,13 +13,7 @@ import lombok.NoArgsConstructor;
 public class Grade {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    Integer Id;
-    public Grade(String string) {
-    }
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    Integer Id;
+    Integer id;
     Integer Grade;
     Integer courseId;
     String Feedback;

@@ -15,5 +15,5 @@ import lombok.NoArgsConstructor;
 public class Instructor {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    Integer Id;
+    Integer id;
 }

@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 public class Assignment {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    Integer Id;
+    Integer id;
     String name;
     String description;
     String dueDate;

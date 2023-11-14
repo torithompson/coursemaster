@@ -24,8 +24,8 @@ public class Initialize implements CommandLineRunner {
     public void run(String... args) throws Exception {
         // Add your initialization code here
 
-        Course mathCourse = new Course("Math");
-        Grade mathGrade = new Grade("99");
+        Course mathCourse = new Course("Math", "College math", "2021-09-01");
+        Grade mathGrade = new Grade(90, 5, "Feedback feedback", 5);
         Payment payment = new Payment("550.00");
 
         List<Course> courses = Arrays.asList(mathCourse);

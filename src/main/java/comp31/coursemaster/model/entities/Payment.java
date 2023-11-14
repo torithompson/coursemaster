@@ -14,7 +14,7 @@ public class Payment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    Integer Id;
+    Integer id;
     Integer studentId;
     Integer amountOwed;
     Integer PaymentStatus;
