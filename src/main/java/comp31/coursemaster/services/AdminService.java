@@ -3,7 +3,6 @@ package comp31.coursemaster.services;
 import comp31.coursemaster.model.entities.User;
 
 public class AdminService {
-    ///TODO:  replace void
     
     //creates new user account with administrative privileges 
     public void createUser() {
