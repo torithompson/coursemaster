@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public class Grade {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     Integer id;
@@ -25,7 +26,5 @@ public class Grade {
         Feedback = feedback;
         this.studentId = studentId;
     }
-
-
 
 }
