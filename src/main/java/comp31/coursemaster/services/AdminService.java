@@ -1,7 +1,6 @@
 package comp31.coursemaster.services;
 
 public class AdminService {
-    ///TODO:  replace void
     
     //creates new user account with administrative privileges 
     public void createUser() {
