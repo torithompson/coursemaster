@@ -17,4 +17,21 @@ public class Grade {
     public Grade(String string) {
     }
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    Integer Id;
+    Integer Grade;
+    Integer courseId;
+    String Feedback;
+    Integer studentId;
+
+    public Grade(Integer grade, Integer courseId, String feedback, Integer studentId) {
+        Grade = grade;
+        this.courseId = courseId;
+        Feedback = feedback;
+        this.studentId = studentId;
+    }
+
+
+
 }
