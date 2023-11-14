@@ -18,15 +18,14 @@ public class Assignment {
     String description;
     String dueDate;
     String grade;
-    Course course;
-    Student student;
+    String student;
 
-    public Assignment(String name, String description, String dueDate, String grade, Course course, Student student) {
+    public Assignment(String name, String description, String dueDate, String grade, Student student) {
         this.name = name;
         this.description = description;
         this.dueDate = dueDate;
         this.grade = grade;
-        this.course = course;
-        this.student = student;
+        // this.course = course;
+        this.student = student.toString();
     }
 }

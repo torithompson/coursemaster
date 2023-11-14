@@ -15,9 +15,6 @@ import lombok.NoArgsConstructor;
 @MappedSuperclass
 @EqualsAndHashCode(callSuper = false)
 public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    Integer id;
     String username;
     String password;
     List<String> permissions;

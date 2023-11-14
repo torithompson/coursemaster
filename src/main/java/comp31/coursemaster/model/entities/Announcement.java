@@ -17,12 +17,12 @@ public class Announcement {
     String title;
     String body;
     String date;
-    Course course;
+    // Course course;
 
-    public Announcement(String title, String body, String date, Course course) {
+    public Announcement(String title, String body, String date) {
         this.title = title;
         this.body = body;
         this.date = date;
-        this.course = course;
+        // this.course = course;
     }
 }

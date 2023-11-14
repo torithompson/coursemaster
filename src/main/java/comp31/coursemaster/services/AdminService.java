@@ -1,7 +1,10 @@
 package comp31.coursemaster.services;
 
+import org.springframework.stereotype.Service;
+
 import comp31.coursemaster.model.entities.User;
 
+@Service
 public class AdminService {
     
     //creates new user account with administrative privileges 

@@ -1,9 +1,12 @@
 package comp31.coursemaster.model.entities;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -13,18 +16,22 @@ import lombok.NoArgsConstructor;
 public class Grade {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    Integer id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "grade_id")
+    Integer grade_id;
     Integer Grade;
     Integer courseId;
     String Feedback;
-    Integer studentId;
 
-    public Grade(Integer grade, Integer courseId, String feedback, Integer studentId) {
+    @ManyToOne
+    @JoinColumn(name = "student_id")
+    private Student student;
+
+    public Grade(Integer grade, Integer courseId, String feedback, Student studentId) {
         Grade = grade;
         this.courseId = courseId;
         Feedback = feedback;
-        this.studentId = studentId;
+        this.student = studentId;
     }
 
 }
