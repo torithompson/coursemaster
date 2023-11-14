@@ -1,4 +1,4 @@
-package comp31.coursemaster.controllers.model.entities;
+package comp31.coursemaster.model.entities;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package comp31.coursemaster.controllers.model.entities;
+package comp31.coursemaster.model.entities;
 
 import java.util.List;
 
@@ -12,9 +12,9 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Data
-@EqualsAndHashCode(callSuper=false)
+@EqualsAndHashCode(callSuper = false)
 @NoArgsConstructor
-public class Student extends User{
+public class Student extends User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     Integer id;

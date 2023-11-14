@@ -8,7 +8,6 @@ import jakarta.persistence.ManyToOne;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
 @Entity
 @Data
 @NoArgsConstructor

@@ -3,8 +3,8 @@ package comp31.coursemaster;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-import comp31.coursemaster.controllers.model.entities.Student;
-import comp31.coursemaster.controllers.model.repos.StudentRepo;
+import comp31.coursemaster.model.entities.Student;
+import comp31.coursemaster.model.repos.StudentRepo;
 
 @Component
 public class Initialize implements CommandLineRunner {
