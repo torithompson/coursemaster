@@ -27,4 +27,7 @@ public class Payment {
         PaymentStatus = paymentStatus;
     }
 
+    public Payment(String string) {
+    }
+
 }
