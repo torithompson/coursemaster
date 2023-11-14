@@ -8,5 +8,15 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public class Announcement {
+    String title;
+    String body;
+    String date;
+    Course course;
 
+    public Announcement(String title, String body, String date, Course course) {
+        this.title = title;
+        this.body = body;
+        this.date = date;
+        this.course = course;
+    }
 }

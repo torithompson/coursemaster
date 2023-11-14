@@ -20,10 +20,11 @@ public class Student extends User {
     List<Grade> grades;
     List<Payment> payments;
 
-    public Student(List<Course> courses, List<Grade> grades, List<Payment> payments) {
-        super();
-        this.courses = courses;
-        this.grades = grades;
-        this.payments = payments;
+    public Student(String username, String password, List<String> permissions,
+            String firstName, String lastName, String email, String phoneNumber,
+            String address, String city, String province, String postalCode, String country,
+            List<Course> courses, List<Grade> grades, List<Payment> payments) {
+        super(username, password, permissions, firstName, lastName, email, phoneNumber,
+                address, city, province, postalCode, country);
     }
 }
