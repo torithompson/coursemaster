@@ -9,14 +9,17 @@ import org.springframework.stereotype.Component;
 import comp31.coursemaster.model.entities.Grade;
 import comp31.coursemaster.model.entities.Payment;
 import comp31.coursemaster.model.entities.Student;
+import comp31.coursemaster.model.repos.PaymentRepo;
 import comp31.coursemaster.model.repos.StudentRepo;
 
 @Component
 public class Initialize implements CommandLineRunner {
     StudentRepo studentRepo;
+    PaymentRepo paymentRepo;
 
-    public Initialize(StudentRepo studentRepo) {
+    public Initialize(StudentRepo studentRepo, PaymentRepo paymentRepo) {
         this.studentRepo = studentRepo;
+        this.paymentRepo = paymentRepo;
     }
 
     @Override
@@ -25,7 +28,7 @@ public class Initialize implements CommandLineRunner {
 
         // Course mathCourse = new Course("Math", "College math", "2021-09-01");
         Grade mathGrade = new Grade(90, 5, "Feedback feedback", null);
-        // Payment payment = new Payment(studentRepo.getStudentById(1), 100, 1);
+        Payment payment = new Payment(studentRepo.getStudentById(1), 100, 1,"Bob", "Smith");
 
         // List<Course> courses = Arrays.asList(mathCourse);
         List<Grade> grades = Arrays.asList(mathGrade);
@@ -36,6 +39,11 @@ public class Initialize implements CommandLineRunner {
                         "343-222-2222",
                         "123 test st", "napanee", "ontario", "k3e3e3", "Canada", grades, null));
         // courses
+        //Payment
+        paymentRepo.save(payment);
+        paymentRepo.save(new Payment(studentRepo.getStudentById(2), 20000, 1, "Charles", "Cuthbert"));
+        paymentRepo.save(new Payment(studentRepo.getStudentById(3), 0, 0, "Jermaine", "Jerm"));
+        paymentRepo.save(new Payment(studentRepo.getStudentById(4), -780, 1, "David", "Dudeson"));
         
     }
 }
