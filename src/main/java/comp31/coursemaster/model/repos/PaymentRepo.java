@@ -7,5 +7,7 @@ import org.springframework.data.repository.CrudRepository;
 import comp31.coursemaster.model.entities.Payment;
 
 public interface PaymentRepo extends CrudRepository<Payment, Integer> {
-    public List<Payment> findall();
+
+    public List<Payment> findAll();
+
 }

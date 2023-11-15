@@ -10,9 +10,9 @@
 
 <body>
     <h2>Login</h2>
-    <form action="/login" method="post" th:object="${employee}">
+    <form action="/login" method="post" th:object="${user}">
         <label>User Id</label>
-        <input type="text" name="userId" th:field="*{userId}">
+        <input type="text" name="userId">
         <br>
         <label>Password</label>
         <input type="password" name="password">

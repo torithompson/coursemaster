@@ -24,17 +24,17 @@ public class Initialize implements CommandLineRunner {
         // Add your initialization code here
 
         // Course mathCourse = new Course("Math", "College math", "2021-09-01");
-        Grade mathGrade = new Grade(90, 5, "Feedback feedback", studentRepo.findById(1).get());
-        Payment payment = new Payment(studentRepo.getStudentById(1), 100, 1);
+        Grade mathGrade = new Grade(90, 5, "Feedback feedback", null);
+        // Payment payment = new Payment(studentRepo.getStudentById(1), 100, 1);
 
         // List<Course> courses = Arrays.asList(mathCourse);
         List<Grade> grades = Arrays.asList(mathGrade);
-        List<Payment> payments = Arrays.asList(payment);
+        // List<Payment> payments = Arrays.asList(payment);
         List<String> permissions = Arrays.asList("student");
         studentRepo.save(
                 new Student("Bob", "password", permissions, "Bob", "Smith", "bob.smith@school.com",
                         "343-222-2222",
-                        "123 test st", "napanee", "ontario", "k3e3e3", "Canada", grades, payments));
+                        "123 test st", "napanee", "ontario", "k3e3e3", "Canada", grades, null));
         // courses
         
     }

@@ -22,7 +22,7 @@ public class Student extends User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "student_id")
-    Integer student_id;
+    Integer id;
     // List<Course> courses;
     @OneToMany(mappedBy = "student")
     List<Grade> grades;

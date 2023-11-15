@@ -7,9 +7,6 @@ import comp31.coursemaster.model.entities.Student;
 public interface StudentRepo extends CrudRepository<Student, Integer> {
     public Student getStudentById(int id);
 
-    public Student updateStudent(Student student);
-
     public int getGradeById(int id);
 
-    public int getGradesForStudent(int id);
 }
