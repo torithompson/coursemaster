@@ -6,16 +6,20 @@ import java.util.List;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import comp31.coursemaster.model.entities.Admin;
 import comp31.coursemaster.model.entities.Grade;
 import comp31.coursemaster.model.entities.Payment;
 import comp31.coursemaster.model.entities.Student;
+import comp31.coursemaster.model.repos.AdminRepo;
 import comp31.coursemaster.model.repos.StudentRepo;
 
 @Component
 public class Initialize implements CommandLineRunner {
+    AdminRepo adminRepo;
     StudentRepo studentRepo;
 
-    public Initialize(StudentRepo studentRepo) {
+    public Initialize(AdminRepo adminRepo, StudentRepo studentRepo) {
+        this.adminRepo = adminRepo;
         this.studentRepo = studentRepo;
     }
 
@@ -31,11 +35,15 @@ public class Initialize implements CommandLineRunner {
         List<Grade> grades = Arrays.asList(mathGrade);
         // List<Payment> payments = Arrays.asList(payment);
         List<String> permissions = Arrays.asList("student");
+        List<String> adminPermissions = Arrays.asList("admin");
         studentRepo.save(
                 new Student("Bob", "password", permissions, "Bob", "Smith", "bob.smith@school.com",
                         "343-222-2222",
                         "123 test st", "napanee", "ontario", "k3e3e3", "Canada", grades, null));
         // courses
         
+        adminRepo.save(
+            new Admin(1, "Boss", "coolboss", adminPermissions, "Barrie", "Responsible", "cool.boss@coursemaster.com",
+                        "343-987-3645", "over the rainbow", "nowhere", "ontario", "k3e3e3", "Canada"));
     }
 }
