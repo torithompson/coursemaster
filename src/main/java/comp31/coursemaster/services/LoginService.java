@@ -12,13 +12,13 @@ public class LoginService {
 
     public String login(String username, User user, Model model) {
         if (username.equals("admin") && user.getPassword().equals("password")
-                && user.getPermissions().contains("admin"))
+                && user.getPermissions().equals("admin"))
             return "admin";
         else if (username.equals("student") && user.getPassword().equals("password")
-                && user.getPermissions().contains("student"))
+                && user.getPermissions().equals("student"))
             return "student";
         else if (username.equals("instructor") && user.getPassword().equals("password")
-                && user.getPermissions().contains("instructor"))
+                && user.getPermissions().equals("instructor"))
             return "instructor";
         else
             return "login";

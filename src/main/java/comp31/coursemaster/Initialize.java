@@ -30,9 +30,8 @@ public class Initialize implements CommandLineRunner {
         // List<Course> courses = Arrays.asList(mathCourse);
         List<Grade> grades = Arrays.asList(mathGrade);
         // List<Payment> payments = Arrays.asList(payment);
-        List<String> permissions = Arrays.asList("student");
         studentRepo.save(
-                new Student("Bob", "password", permissions, "Bob", "Smith", "bob.smith@school.com",
+                new Student("Bob", "password", "student", "Bob", "Smith", "bob.smith@school.com",
                         "343-222-2222",
                         "123 test st", "napanee", "ontario", "k3e3e3", "Canada", grades, null));
         // courses

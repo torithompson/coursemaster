@@ -1,6 +1,5 @@
 package comp31.coursemaster.model.entities;
 
-import java.util.List;
 
 
 import jakarta.persistence.MappedSuperclass;
@@ -15,7 +14,7 @@ import lombok.NoArgsConstructor;
 public class User {
     String username;
     String password;
-    List<String> permissions;
+    String permissions;
     String firstName;
     String lastName;
     String email;
@@ -26,12 +25,12 @@ public class User {
     String postalCode;
     String country;
 
-    public User(String username, String password, List<String> permissions, String firstName, String lastName,
+    public User(String username, String password, String permission, String firstName, String lastName,
             String email, String phoneNumber, String address, String city, String province, String postalCode,
             String country) {
         this.username = username;
         this.password = password;
-        this.permissions = permissions;
+        this.permissions = permission;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;

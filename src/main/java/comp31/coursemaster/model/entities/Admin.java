@@ -1,6 +1,5 @@
 package comp31.coursemaster.model.entities;
 
-import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -20,11 +19,11 @@ public class Admin extends User {
     Integer id;
     Integer empNumber;
 
-    public Admin(Integer empNumber, String username, String password, List<String> permissions, String firstName,
+    public Admin(Integer empNumber, String username, String password, String permission, String firstName,
             String lastName,
             String email, String phoneNumber, String address, String city, String province, String postalCode,
             String country) {
-        super(username, password, permissions, firstName, lastName, email, phoneNumber, address, city, province,
+        super(username, password, permission, firstName, lastName, email, phoneNumber, address, city, province,
                 postalCode, country);
 
         this.empNumber = empNumber;
