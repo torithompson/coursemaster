@@ -60,3 +60,23 @@ a {
     border: 1px solid #ccc;
     padding: 5px;
 }
+.header-container {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    margin-top: -10px;
+    margin-bottom: 20px;
+    margin-left: -8px;
+    margin-right: -7px;
+}
+
+.header-title {
+    margin: 0;
+    font-size: 36px;
+}
+
+.header-subtitle {
+    margin: 10px 0;
+    font-size: 18px;
+}

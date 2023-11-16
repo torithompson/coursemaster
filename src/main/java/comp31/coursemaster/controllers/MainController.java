@@ -18,6 +18,11 @@ public class MainController {
     }
 
     @GetMapping("/")
+    public String getRoot() {
+        return "index";
+    }
+
+    @GetMapping("/login")
     public String getRoot(Model model) {
         User user = new User();
         model.addAttribute("user", user);
