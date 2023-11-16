@@ -30,11 +30,11 @@ public class Student extends User {
     @OneToMany(mappedBy = "student")
     List<Payment> payments;
 
-    public Student(String username, String password, String permission,
+    public Student(String username, String password, String permissions,
             String firstName, String lastName, String email, String phoneNumber,
             String address, String city, String province, String postalCode, String country, List<Grade> grades,
             List<Payment> payments) {
-        super(username, password, permission, firstName, lastName, email, phoneNumber,
+        super(username, password, permissions, firstName, lastName, email, phoneNumber,
                 address, city, province, postalCode, country);
         // ,List<Course> courses,
     }
