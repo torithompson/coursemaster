@@ -1,8 +1,5 @@
 package comp31.coursemaster.model.entities;
 
-import java.util.List;
-
-
 import jakarta.persistence.MappedSuperclass;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

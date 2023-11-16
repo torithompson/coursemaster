@@ -3,10 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" th:href="@{css/styles.css}">
     <title>Admin</title>
 </head>
 <body>
     <h2>Admin Page</h2>
-    <p>Return to <a href="/">index</a></p>
+
+    <table>
+        <thead>
+            <td>Employee Number</td>
+            <td>User Name</td>
+            <td>Password</td>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td>Email</td>
+            <td>Phone</td>
+            <td>Address</td>
+            <td>Postal Code</td>
+            <td>City</td>
+            <td>Province</td>
+            <td>Country</td>
+        </thead>
+        <tr th:each="admins,row:${allAdmins}">
+            <td th:text="${admins.empNumber}"></td>
+            <td th:text="${admins.username}"></td>
+            <td th:text="${admins.password}"></td>
+            <td th:text="${admins.firstName}"></td>
+            <td th:text="${admins.lastName}"></td>
+            <td th:text="${admins.email}"></td>
+            <td th:text="${admins.phoneNumber}"></td>
+            <td th:text="${admins.address}"></td>
+            <td th:text="${admins.postalCode}"></td>
+            <td th:text="${admins.city}"></td>
+            <td th:text="${admins.province}"></td>
+            <td th:text="${admins.country}"></td>
+        </tr>
+    </table>
 </body>
 </html>

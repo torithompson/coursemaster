@@ -13,6 +13,22 @@
         <input type="text" name="amount" id="amount">
         <input type="submit" value="Pay">
     </form>
-    
+
+    <table border="solid">
+        <tr>
+            <th>Student ID</th>
+            <th>First Name</th>
+            <th>Last name</th>
+            <th>Amount Owed</th>
+            <th>Payment status</th>
+        </tr>
+        <tr th:each="payment:${Payments}">
+            <td th:text="${payment.student}"></td>
+            <td th:text="${payment.firstName}"></td>
+            <td th:text="${payment.lastName}"></td>
+            <td th:text="${payment.amountOwed}"></td>
+            <td th:text="${payment.paymentStatus}"></td>
+        </tr>
+    </table>
 </body>
 </html>
