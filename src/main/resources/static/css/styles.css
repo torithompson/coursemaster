@@ -30,15 +30,16 @@ a {
     margin: 8px 0;
     border: none;
     cursor: pointer;
+    text-decoration: none;
 }
 
-.employee-table {
+table {
     width: 50%;
     border-collapse: collapse;
     margin-top: 20px;
 }
 
-.employee-table thead th {
+table thead th {
     background-color: #007bff;
     color: #fff;
     font-weight: bold;
@@ -46,12 +47,12 @@ a {
     padding: 10px;
 }
 
-.employee-table tbody td {
+table tbody td {
     border: 1px solid #ddd;
     padding: 10px;
 }
 
-.employee-table tbody tr:hover {
+table tbody tr:hover {
     background-color: #f5f5f5;
 }
 
@@ -64,7 +65,6 @@ a {
     background-color: #333;
     color: #fff;
     padding: 20px;
-    text-align: center;
     margin-top: -10px;
     margin-bottom: 20px;
     margin-left: -8px;
@@ -79,4 +79,7 @@ a {
 .header-subtitle {
     margin: 10px 0;
     font-size: 18px;
+}
+.logout-container {
+    margin-top: 40px;
 }
