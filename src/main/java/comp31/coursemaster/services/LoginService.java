@@ -11,14 +11,11 @@ import lombok.NoArgsConstructor;
 public class LoginService {
 
     public String login(String username, User user, Model model) {
-        if (username.equals("admin") && user.getPassword().equals("password")
-                && user.getPermissions().contains("admin"))
+        if (username.equals("admin") && user.getPassword().equals("password"))
             return "admin";
-        else if (username.equals("student") && user.getPassword().equals("password")
-                && user.getPermissions().contains("student"))
+        else if (username.equals("student") && user.getPassword().equals("password"))
             return "student";
-        else if (username.equals("instructor") && user.getPassword().equals("password")
-                && user.getPermissions().contains("instructor"))
+        else if (username.equals("instructor") && user.getPassword().equals("password"))
             return "instructor";
         else
             return "login";

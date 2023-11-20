@@ -19,7 +19,7 @@ public class Grade {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "grade_id")
     Integer grade_id;
-    Integer Grade;
+    Integer grade;
     Integer courseId;
     String Feedback;
 
@@ -28,7 +28,7 @@ public class Grade {
     private Student student;
 
     public Grade(Integer grade, Integer courseId, String feedback, Student studentId) {
-        Grade = grade;
+        this.grade = grade;
         this.courseId = courseId;
         Feedback = feedback;
         this.student = studentId;

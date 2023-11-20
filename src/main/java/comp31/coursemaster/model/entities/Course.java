@@ -11,25 +11,22 @@ import lombok.NoArgsConstructor;
 @Entity
 @Data
 @NoArgsConstructor
-public class Assignment {
+public class Course {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
     String name;
     String description;
-    String dueDate;
-    String grade;
-    String student;
+    String startDate;
 
     @ManyToOne
     Instructor instructor;
 
-    public Assignment(String name, String description, String dueDate, String grade, Student student) {
+    public Course(String name, String description, Instructor instructor, String startDate) {
         this.name = name;
         this.description = description;
-        this.dueDate = dueDate;
-        this.grade = grade;
-        // this.course = course;
-        this.student = student.toString();
+        this.instructor = instructor;
+        this.startDate = startDate;
     }
+
 }

@@ -1,7 +1,5 @@
 package comp31.coursemaster.model.entities;
 
-import java.util.List;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -20,7 +18,7 @@ public class Admin extends User {
     Integer id;
     Integer empNumber;
 
-    public Admin(Integer empNumber, String username, String password, List<String> permissions, String firstName,
+    public Admin(Integer empNumber, String username, String password, String permissions, String firstName,
             String lastName,
             String email, String phoneNumber, String address, String city, String province, String postalCode,
             String country) {

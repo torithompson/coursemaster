@@ -1,8 +1,5 @@
 package comp31.coursemaster.model.entities;
 
-import java.util.List;
-
-
 import jakarta.persistence.MappedSuperclass;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -15,7 +12,7 @@ import lombok.NoArgsConstructor;
 public class User {
     String username;
     String password;
-    List<String> permissions;
+    String permissions;
     String firstName;
     String lastName;
     String email;
@@ -26,7 +23,7 @@ public class User {
     String postalCode;
     String country;
 
-    public User(String username, String password, List<String> permissions, String firstName, String lastName,
+    public User(String username, String password, String permissions, String firstName, String lastName,
             String email, String phoneNumber, String address, String city, String province, String postalCode,
             String country) {
         this.username = username;
