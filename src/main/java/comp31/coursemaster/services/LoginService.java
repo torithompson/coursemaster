@@ -12,7 +12,7 @@ public class LoginService {
 
     public String login(String username, User user, Model model) {
         if (username.equals("admin") && user.getPassword().equals("password"))
-            return "admin";
+            return "redirect:/admin";
         else if (username.equals("student") && user.getPassword().equals("password"))
             return "student";
         else if (username.equals("instructor") && user.getPassword().equals("password"))
