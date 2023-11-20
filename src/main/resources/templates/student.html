@@ -11,20 +11,20 @@
     </div>
     <table border="solid">
         <tr>
-            <td>Student Number</td>
-            <td>User Name</td>
-            <td>Password</td>
-            <td>First Name</td>
-            <td>Last Name</td>
-            <td>Email</td>
-            <td>Phone</td>
-            <td>Address</td>
-            <td>Postal Code</td>
-            <td>City</td>
-            <td>Province</td>
-            <td>Country</td>
-            <td>Grades</td>
-            <td>Payments</td>
+            <th>Student Number</th>
+            <th>User Name</th>
+            <th>Password</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Address</th>
+            <th>Postal Code</th>
+            <th>City</th>
+            <th>Province</th>
+            <th>Country</th>
+            <th>Grades</th>
+            <th>Payments</th>
         </tr>
         <tr th:each="student:${students}">
             <td th:text="${student.id}"></td>

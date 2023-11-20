@@ -32,13 +32,14 @@ a {
     cursor: pointer;
 }
 
-.employee-table {
+table {
     width: 50%;
     border-collapse: collapse;
     margin-top: 20px;
+    margin-bottom: 40px;
 }
 
-.employee-table thead th {
+table th {
     background-color: #007bff;
     color: #fff;
     font-weight: bold;
@@ -46,12 +47,12 @@ a {
     padding: 10px;
 }
 
-.employee-table tbody td {
+table tbody td {
     border: 1px solid #ddd;
     padding: 10px;
 }
 
-.employee-table tbody tr:hover {
+table tbody tr:hover {
     background-color: #f5f5f5;
 }
 
