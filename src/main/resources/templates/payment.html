@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Billing and Payments</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body>
+        <div th:insert="~{fragments/frags :: header}" class="header">
+        </div>
     <h1>Billing and Payments</h1>
     <p>Here you can pay your bills</p>
     <form action="/payment" method="post">
