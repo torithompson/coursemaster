@@ -37,10 +37,4 @@ public class MainController {
         String validatedLogin = loginService.login(userId, user, model);
         return validatedLogin;
     }
-
-    // Handling the GET request to /logout
-    @GetMapping("/logout")
-    public String logout() {
-        return "redirect:/"; // Redirect to the root page
-    }
 }
