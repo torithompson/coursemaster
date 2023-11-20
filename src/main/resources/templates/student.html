@@ -6,7 +6,38 @@
     <title>Document</title>
 </head>
 <body>
-    <p>I am the  best student</p>
+    <table border="solid">
+        <tr>
+            <td>Student Number</td>
+            <td>User Name</td>
+            <td>Password</td>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td>Email</td>
+            <td>Phone</td>
+            <td>Address</td>
+            <td>Postal Code</td>
+            <td>City</td>
+            <td>Province</td>
+            <td>Country</td>
+            <td>Grades</td>
+            <td>Payments</td>
+        </tr>
+        <tr th:each="student:${students}">
+            <td th:text="${student.id}"></td>
+            <td th:text="${student.username}"></td>
+            <td th:text="${student.password}"></td>
+            <td th:text="${student.firstName}"></td>
+            <td th:text="${student.lastName}"></td>
+            <td th:text="${student.email}"></td>
+            <td th:text="${student.phoneNumber}"></td>
+            <td th:text="${student.address}"></td>
+            <td th:text="${student.postalCode}"></td>
+            <td th:text="${student.city}"></td>
+            <td th:text="${student.province}"></td>
+            <td th:text="${student.country}"></td>
+        </tr>
+    </table>
 <a href="/payment">View payment balance</a>
 </body>
 </html>
