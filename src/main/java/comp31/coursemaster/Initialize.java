@@ -41,6 +41,14 @@ public class Initialize implements CommandLineRunner {
         // Add your initialization code here
 
         paymentRepo.findById(1);
+        studentRepo.save(
+                new Student("student", "password", "student", "Bob", "Smith", "bob.smith@school.com",
+                        "343-222-2222",
+                        "123 test st", "napanee", "ontario", "k3e3e3", "Canada", null,
+                        null));
+        instructorRepo.save(new Instructor("instructor", "password", "instructor", "Charles", "Cuthbert",
+                "charles.cuthbert@coursemaster.com",
+                "343-222-2222", "123 test st", "napanee", "ontario", "k3e3e3", "Canada", null, null));
 
         // Students
         studentRepo.save(
