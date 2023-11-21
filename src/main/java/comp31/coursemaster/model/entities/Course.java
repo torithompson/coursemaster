@@ -37,12 +37,12 @@ public class Course {
     @OneToMany(mappedBy = "course")
     List<Assignment> assignment;
 
-    public Course(String name, String description, Instructor instructor, Student student, String startDate, List<Assignment> assignment) {
+    public Course(String name, String description, Instructor instructor, List<Student> students, String startDate, List<Assignment> assignment) {
         this.name = name;
         this.description = description;
         this.instructor = instructor;
         this.startDate = startDate;
-        this.student = student;
+        this.students = students;
         this.assignment = assignment;
     }
 

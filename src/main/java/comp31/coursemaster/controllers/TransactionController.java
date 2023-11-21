@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import comp31.coursemaster.model.entities.Payment;
 import comp31.coursemaster.services.TransactionService;
 
 @Controller
