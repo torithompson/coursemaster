@@ -12,5 +12,5 @@ public interface PaymentRepo extends CrudRepository<Payment, Integer> {
 
     public Payment findByStudentId(int id);
 
-    public Payment getPaymentById(int i);
+    public Payment findPaymentById(int i);
 }
