@@ -19,7 +19,9 @@ public class LoginService {
         if (username.equals("admin") && user.getPassword().equals("password"))
             return "redirect:/admin";
         else if (username.equals("student") && user.getPassword().equals("password")) {
-            model.addAttribute("userId", username);
+            Integer studentId = user.getId();
+            model.addAttribute("studentId", studentId);
+            model.addAttribute("username", username);
             return "redirect:/student";
         } else if (username.equals("instructor") && user.getPassword().equals("password"))
             return "redirect:/instructor";
