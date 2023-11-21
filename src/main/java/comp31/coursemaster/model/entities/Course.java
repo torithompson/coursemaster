@@ -1,5 +1,7 @@
 package comp31.coursemaster.model.entities;
 
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -20,22 +22,29 @@ public class Course {
     String description;
     String startDate;
 
-    // @ManyToOne
-    // @JoinColumn(name = "instructor_id")
-    // Instructor instructor;
-    // not working
+    @ManyToOne
+    @JoinColumn(name = "instructor_id")
+    Instructor instructor;
 
-    Integer instructor;
     @ManyToOne
     @JoinColumn(name = "student_id")
     Student student;
 
-    public Course(String name, String description, Integer instructorId, Student student, String startDate) {
+    public Course(String name, String description, Instructor instructor, Student student, String startDate) {
         this.name = name;
         this.description = description;
-        this.instructor = instructorId;
+        this.instructor = instructor;
         this.startDate = startDate;
         this.student = student;
+    }
+
+    public void setStudents(List<Student> asList) {
+    }
+
+    public void setInstructors(List<Instructor> asList) {
+    }
+
+    public void setPayments(List<Object> asList) {
     }
 
 }

@@ -13,7 +13,7 @@
     <div th:insert="~{fragments/frags :: header}" class="header">
     </div>
     <table border="solid">
-        <tr>
+        <thead>
             <th>Student Number</th>
             <th>User Name</th>
             <th>Password</th>
@@ -26,9 +26,7 @@
             <th>City</th>
             <th>Province</th>
             <th>Country</th>
-            <th>Grades</th>
-            <th>Payments</th>
-        </tr>
+        </thead>
         <tr th:each="student:${students}">
             <td th:text="${student.id}"></td>
             <td th:text="${student.username}"></td>

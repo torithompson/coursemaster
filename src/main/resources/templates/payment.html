@@ -29,7 +29,7 @@
             <th>Payment status</th>
         </tr>
         <tr th:each="payment:${Payments}">
-            <td th:text="${payment.student}"></td>
+            <td th:text="${payment.student.id}"></td>
             <td th:text="${payment.firstName}"></td>
             <td th:text="${payment.lastName}"></td>
             <td th:text="${payment.amountOwed}"></td>
