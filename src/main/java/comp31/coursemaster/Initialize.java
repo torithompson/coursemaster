@@ -40,11 +40,11 @@ public class Initialize implements CommandLineRunner {
                 // Add your initialization code here
 
                 studentRepo.save(
-                                new Student("Bob", "password", "student", "Bob", "Smith", "bob.smith@school.com",
+                                new Student("student", "password", "student", "Bob", "Smith", "bob.smith@school.com",
                                                 "343-222-2222",
                                                 "123 test st", "napanee", "ontario", "k3e3e3", "Canada", null,
                                                 null));
-                instructorRepo.save(new Instructor("Charles", "password", "instructor", "Charles", "Cuthbert",
+                instructorRepo.save(new Instructor("instructor", "password", "instructor", "Charles", "Cuthbert",
                                 "charles.cuthbert@coursemaster.com",
                                 "343-222-2222", "123 test st", "napanee", "ontario", "k3e3e3", "Canada", null, null));
 
@@ -63,7 +63,7 @@ public class Initialize implements CommandLineRunner {
                 // "David", "Dudeson"));
 
                 adminRepo.save(
-                                new Admin(1, "Boss", "coolboss", "admin", "Barrie", "Responsible",
+                                new Admin(1, "admin", "coolboss", "admin", "Barrie", "Responsible",
                                                 "cool.boss@coursemaster.com",
                                                 "343-987-3645", "over the rainbow", "nowhere", "ontario", "k3e3e3",
                                                 "Canada"));
