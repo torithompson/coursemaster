@@ -19,9 +19,9 @@ public class LoginService {
         if (username.equals("admin") && user.getPassword().equals("password"))
             return "redirect:/admin";
         else if (username.equals("student") && user.getPassword().equals("password"))
-            return "student";
+            return "redirect:/student";
         else if (username.equals("instructor") && user.getPassword().equals("password"))
-            return "instructor";
+            return "redirect:/instructor";
         else
             return "login";
     }
