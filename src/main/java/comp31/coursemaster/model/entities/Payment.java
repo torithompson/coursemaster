@@ -20,7 +20,7 @@ public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "payment_id")
-    Integer payment_id;
+    Integer id;
     Integer amountOwed;
     Integer PaymentStatus;
     String firstName;
@@ -30,8 +30,8 @@ public class Payment {
     @JoinColumn(name = "student_id")
     Student student;
 
-    public Payment(Student studentId, Integer amountOwed, Integer paymentStatus, String firstName, String lastName) {
-        this.student = studentId;
+    public Payment(Student student, Integer amountOwed, Integer paymentStatus, String firstName, String lastName) {
+        this.student = student;
         this.amountOwed = amountOwed;
         PaymentStatus = paymentStatus;
         this.firstName = firstName;
