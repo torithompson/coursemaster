@@ -15,8 +15,36 @@ public class AdminService {
     }
 
     //creates new user account with administrative privileges 
-    public void createUser() {
+    public void addAdmin(
+        String username, 
+        String password, 
+        String firstName,
+        String lastName, 
+        String email, 
+        String phoneNumber, 
+        String address, 
+        String city, 
+        String province, 
+        String postalCode,
+        String country) {
+            Admin admin = new Admin();
+            admin.setUsername(username);
+            admin.setPassword(password);
+            admin.setPermissions("admin");
+            admin.setFirstName(firstName);
+            admin.setLastName(lastName);
+            admin.setEmail(email);
+            admin.setPhoneNumber(phoneNumber);
+            admin.setAddress(address);
+            admin.setCity(city);
+            admin.setProvince(province);
+            admin.setPostalCode(postalCode);
+            admin.setCountry(country);
+            adminRepo.save(admin);
+    }
 
+    public void addAdmin(Admin admin) {
+        adminRepo.save(admin);
     }
 
     //removes a user account from the system
