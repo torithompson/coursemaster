@@ -24,16 +24,13 @@ public class Instructor extends User {
     @Column(name = "instructor_id")
     Integer id;
 
-    @OneToMany(mappedBy = "instructor_id")
+    @OneToMany(mappedBy = "instructor")
     List<Course> courses;
-
-    @OneToMany(mappedBy = "assignment_id")
-    List<Assignment> assignments;
 
     public Instructor(String username, String password, String permissions,
             String firstName, String lastName, String email, String phoneNumber,
             String address, String city, String province, String postalCode,
-            String country, List<Course> courses, List<Assignment> assignments) {
+            String country, List<Course> courses) {
         super(username, password, permissions, firstName, lastName, email, phoneNumber,
                 address, city, province, postalCode, country);
     }

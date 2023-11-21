@@ -47,7 +47,7 @@ public class Initialize implements CommandLineRunner {
                         null));
         instructorRepo.save(new Instructor("instructor", "password", "instructor", "Charles", "Cuthbert",
                 "charles.cuthbert@coursemaster.com",
-                "343-222-2222", "123 test st", "napanee", "ontario", "k3e3e3", "Canada", null, null));
+                        "343-222-2222", "123 test st", "napanee", "ontario", "k3e3e3", "Canada", null));
 
                 // courses
                 Course course = new Course("Math", "College math", instructorRepo.findById(1), studentRepo.findAll(), "2021-09-01", null);
@@ -78,7 +78,7 @@ public class Initialize implements CommandLineRunner {
 
         instructorRepo.save(new Instructor("Charles", "password", "instructor", "Charles", "Cuthbert",
                 "charles.cuthbert@coursemaster.com",
-                "343-222-2222", "123 test st", "napanee", "ontario", "k3e3e3", "Canada", null, null));
+                        "343-222-2222", "123 test st", "napanee", "ontario", "k3e3e3", "Canada", null));
 
         courseRepo.save(course);
         paymentRepo.save(payment);
