@@ -24,10 +24,10 @@ public class Instructor extends User {
     @Column(name = "instructor_id")
     Integer id;
 
-    // @OneToMany(mappedBy = "instructor")
-    // List<Course> courses;
+    @OneToMany(mappedBy = "instructor_id")
+    List<Course> courses;
 
-    @OneToMany(mappedBy = "instructor")
+    @OneToMany(mappedBy = "assignment_id")
     List<Assignment> assignments;
 
     public Instructor(String username, String password, String permissions,
