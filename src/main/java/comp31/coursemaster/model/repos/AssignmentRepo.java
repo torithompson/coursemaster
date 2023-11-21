@@ -1,5 +1,5 @@
 package comp31.coursemaster.model.repos;
 
-public class AssignmentRepo {
+public interface AssignmentRepo {
 
 }
