@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{/css/styles.css}">
     <title>Billing and Payments</title>
-    <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 
 <body>
@@ -15,19 +14,23 @@
     <h1>Billing and Payments</h1>
     <p>Here you can pay your bills</p>
     <form action="/payment" method="post">
+        <label for="studentid">Student ID</label>
+        <input type="text" name="studentid">
+        <br>
         <label for="amount">Amount</label>
-        <input type="text" name="amount" id="amount">
+        <input type="text" name="amount">
+        <br>
         <input type="submit" value="Pay">
     </form>
 
-    <table border="solid">
-        <tr>
+    <table>
+        <thead>
             <th>Student ID</th>
             <th>First Name</th>
             <th>Last name</th>
             <th>Amount Owed</th>
             <th>Payment status</th>
-        </tr>
+        </thead>
         <tr th:each="payment:${Payments}">
             <td th:text="${payment.student.id}"></td>
             <td th:text="${payment.firstName}"></td>

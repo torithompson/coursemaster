@@ -29,4 +29,17 @@ public class TransactionService {
     public Iterable<Payment> findPayments() {
         return paymentRepo.findAll();
     }
+
+    public Payment findPaymentByStudentId(Integer id) {
+        return paymentRepo.findPaymentByStudentId(id);
+    }
+
+    public void updatePayment(Integer id, Integer updateAmt) {
+        Payment payment = paymentRepo.findPaymentByStudentId(id);
+        updateAmt = payment.getAmountOwed() - updateAmt;
+        payment.setAmountOwed(updateAmt);
+        if (updateAmt < 0)
+            payment.setPaymentStatus(0);
+        paymentRepo.save(payment);
+    }
 }
