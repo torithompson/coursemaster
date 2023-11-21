@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,14 +20,22 @@ public class Course {
     String description;
     String startDate;
 
-    @ManyToOne
-    Instructor instructor;
+    // @ManyToOne
+    // @JoinColumn(name = "instructor_id")
+    // Instructor instructor;
+    // not working
 
-    public Course(String name, String description, Instructor instructor, String startDate) {
+    Integer instructor;
+    @ManyToOne
+    @JoinColumn(name = "student_id")
+    Student student;
+
+    public Course(String name, String description, Integer instructorId, Student student, String startDate) {
         this.name = name;
         this.description = description;
-        this.instructor = instructor;
+        this.instructor = instructorId;
         this.startDate = startDate;
+        this.student = student;
     }
 
 }

@@ -20,16 +20,17 @@ public class Assignment {
     String dueDate;
     String grade;
     String student;
+    String course;
 
     @ManyToOne
     Instructor instructor;
 
-    public Assignment(String name, String description, String dueDate, String grade, Student student) {
+    public Assignment(String name, String description, String dueDate, String grade, String course, Student student) {
         this.name = name;
         this.description = description;
         this.dueDate = dueDate;
         this.grade = grade;
-        // this.course = course;
+        this.course = course;
         this.student = student.toString();
     }
 }

@@ -6,6 +6,11 @@ import org.springframework.ui.Model;
 import comp31.coursemaster.model.entities.User;
 import lombok.NoArgsConstructor;
 
+/*
+ * LoginService 
+ * Validates login credentials and returns the appropriate view
+ * Completed by Tori Thompson
+ */
 @Service
 @NoArgsConstructor
 public class LoginService {

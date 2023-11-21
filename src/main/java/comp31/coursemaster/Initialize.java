@@ -7,13 +7,17 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import comp31.coursemaster.model.entities.Admin;
-import comp31.coursemaster.model.entities.Grade;
+import comp31.coursemaster.model.entities.Course;
 import comp31.coursemaster.model.entities.Payment;
 import comp31.coursemaster.model.entities.Student;
 import comp31.coursemaster.model.repos.AdminRepo;
 import comp31.coursemaster.model.repos.PaymentRepo;
 import comp31.coursemaster.model.repos.StudentRepo;
 
+/*
+ * Initialize 
+ * Initializes the database with hardcoded data  
+ */
 @Component
 public class Initialize implements CommandLineRunner {
     AdminRepo adminRepo;
@@ -30,17 +34,17 @@ public class Initialize implements CommandLineRunner {
     public void run(String... args) throws Exception {
         // Add your initialization code here
 
-        // Course mathCourse = new Course("Math", "College math", "2021-09-01");
-        Grade mathGrade = new Grade(90, 5, "Feedback feedback", null);
         Payment payment = new Payment(studentRepo.getStudentById(1), 100, 1, "Bob", "Smith");
+        Course mathCourse = new Course("Math", "College math", 1,
+                        studentRepo.getStudentById(1), "2021-09-01");
+        List<Course> courses = Arrays.asList(mathCourse);
+        List<Payment> payments = Arrays.asList(payment);
 
-        // List<Course> courses = Arrays.asList(mathCourse);
-        List<Grade> grades = Arrays.asList(mathGrade);
-        // List<Payment> payments = Arrays.asList(payment);
         studentRepo.save(
                 new Student("Bob", "password", "student", "Bob", "Smith", "bob.smith@school.com",
                         "343-222-2222",
-                        "123 test st", "napanee", "ontario", "k3e3e3", "Canada", grades, null));
+                                        "123 test st", "napanee", "ontario", "k3e3e3", "Canada", payments,
+                                        courses));
         // courses
         // Payment
         paymentRepo.save(payment);

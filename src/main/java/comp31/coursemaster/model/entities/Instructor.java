@@ -24,8 +24,8 @@ public class Instructor extends User {
     @Column(name = "instructor_id")
     Integer id;
 
-    @OneToMany(mappedBy = "instructor")
-    List<Course> courses;
+    // @OneToMany(mappedBy = "instructor")
+    // List<Course> courses;
 
     @OneToMany(mappedBy = "instructor")
     List<Assignment> assignments;
@@ -33,7 +33,7 @@ public class Instructor extends User {
     public Instructor(String username, String password, String permissions,
             String firstName, String lastName, String email, String phoneNumber,
             String address, String city, String province, String postalCode,
-            String country /* ,List<Course> courses, List<Assignment> assignments */) {
+            String country, List<Course> courses, List<Assignment> assignments) {
         super(username, password, permissions, firstName, lastName, email, phoneNumber,
                 address, city, province, postalCode, country);
     }

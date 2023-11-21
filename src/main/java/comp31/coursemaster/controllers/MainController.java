@@ -9,6 +9,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import comp31.coursemaster.model.entities.User;
 import comp31.coursemaster.services.LoginService;
 
+/*
+ * This controller handles the GET request to the root page (/) and the GET request to /login
+ * Author: Tori Thompson
+ */
 @Controller
 public class MainController {
     LoginService loginService;
