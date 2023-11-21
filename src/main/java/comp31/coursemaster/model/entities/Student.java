@@ -23,19 +23,18 @@ public class Student extends User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "student_id")
     Integer id;
-    // List<Course> courses;
-    @OneToMany(mappedBy = "student")
-    List<Grade> grades;
 
+    @OneToMany(mappedBy = "student")
+    List<Course> courses;
     @OneToMany(mappedBy = "student")
     List<Payment> payments;
 
     public Student(String username, String password, String permissions,
             String firstName, String lastName, String email, String phoneNumber,
-            String address, String city, String province, String postalCode, String country, List<Grade> grades,
-            List<Payment> payments) {
+            String address, String city, String province, String postalCode, String country,
+            List<Payment> payments, List<Course> courses) {
         super(username, password, permissions, firstName, lastName, email, phoneNumber,
                 address, city, province, postalCode, country);
-        // ,List<Course> courses,
+
     }
 }

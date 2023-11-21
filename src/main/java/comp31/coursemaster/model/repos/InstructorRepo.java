@@ -7,5 +7,4 @@ import comp31.coursemaster.model.entities.Instructor;
 public interface InstructorRepo extends CrudRepository<Instructor, Integer> {
     public Instructor findById(int id);
 
-    // public List<Course> getAllCourses();
 }

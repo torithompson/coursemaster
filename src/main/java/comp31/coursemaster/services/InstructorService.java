@@ -4,30 +4,35 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import comp31.coursemaster.model.entities.Announcement;
 import comp31.coursemaster.model.entities.Assignment;
-// import comp31.coursemaster.model.entities.Course;
+import comp31.coursemaster.model.entities.Course;
 import comp31.coursemaster.model.entities.Student;
+import comp31.coursemaster.model.repos.CourseRepo;
+import comp31.coursemaster.model.repos.InstructorRepo;
 
 @Service
 public class InstructorService {
-    // public List<Course> GetAssignedCourses() {
-    // return null;
-    // }
+    InstructorRepo instructorRepo;
+    CourseRepo courseRepo;
+
+    public InstructorService(InstructorRepo instructorRepo, CourseRepo courseRepo) {
+        this.instructorRepo = instructorRepo;
+        this.courseRepo = courseRepo;
+    }
+
+    public List<Course> GetAssignedCourses() {
+        return null;
+    }
 
     public List<Student> GetAssignedStudents() {
         return null;
     }
 
-    public List<Announcement> GetSentAnnouncements() {
-        return null;
-    }
-
-    public void CreateAnnouncement() {
-        new Announcement();
-    }
-
     public void CreateAssignment() {
         new Assignment();
+    }
+
+    public List<Course> findAll() {
+        return courseRepo.findAll();
     }
 }

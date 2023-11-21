@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{/css/styles.css}">
     <title>Billing and Payments</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
+
 <body>
-    <div th:insert="fragments/frags :: header" class="header">
+    <div th:insert="~{fragments/frags :: header}" class="header">
     </div>
     <h1>Billing and Payments</h1>
     <p>Here you can pay your bills</p>
@@ -26,12 +29,15 @@
             <th>Payment status</th>
         </tr>
         <tr th:each="payment:${Payments}">
-            <td th:text="${payment.student}"></td>
+            <td th:text="${payment.student.id}"></td>
             <td th:text="${payment.firstName}"></td>
             <td th:text="${payment.lastName}"></td>
             <td th:text="${payment.amountOwed}"></td>
             <td th:text="${payment.paymentStatus}"></td>
         </tr>
     </table>
+    <div th:insert="~{fragments/frags :: logout}">
+    </div>
 </body>
+
 </html>

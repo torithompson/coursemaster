@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+
+<body>
+    <div th:insert="~{fragments/frags :: header}" class="header">
+    </div>
+    <table border="solid">
+        <thead>
+            <th>Course ID</th>
+            <th>Course Name</th>
+            <th>Course Description</th>
+            <th>Start Date</th>
+        </thead>
+        <tr th:each="course:${courses}">
+            <td th:text="${course.id}"></td>
+            <td th:text="${course.name}"></td>
+            <td th:text="${course.description}"></td>
+            <td th:text="${course.startDate}"></td>
+        </tr>
+
+</body>
+
+</html>

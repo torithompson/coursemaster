@@ -24,8 +24,8 @@ public class Instructor extends User {
     @Column(name = "instructor_id")
     Integer id;
 
-    @OneToMany(mappedBy = "instructor")
-    List<Course> courses;
+    // @OneToMany(mappedBy = "instructor")
+    // List<Course> courses;
 
     @OneToMany(mappedBy = "instructor")
     List<Assignment> assignments;
