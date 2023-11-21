@@ -14,10 +14,41 @@
     <h2>Instructor Page</h2>
 
     <table>
-        <tr>
-            <td></td>
+        <thead>
+            <td>Username</td>
+            <td>Password</td>
+            <td>Permissions</td>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td>Email</td>
+            <td>Phone Number</td>
+            <td>Address</td>
+            <td>City</td>
+            <td>Province</td>
+            <td>Postal Code</td>
+            <td>Country</td>
+            <td>Courses</td>
+            <td>Assignments</td>
+        </thead>
+        <tr th:each="instructor,row:${instructors}">
+            <td th:text="${instructor.username}"></td>
+            <td th:text="${instructor.password}"></td>
+            <td th:text="${instructor.permissions}"></td>
+            <td th:text="${instructor.firstName}"></td>
+            <td th:text="${instructor.lastName}"></td>
+            <td th:text="${instructor.email}"></td>
+            <td th:text="${instructor.phoneNumber}"></td>
+            <td th:text="${instructor.address}"></td>
+            <td th:text="${instructor.city}"></td>
+            <td th:text="${instructor.province}"></td>
+            <td th:text="${instructor.postalCode}"></td>
+            <td th:text="${instructor.country}"></td>
+            <!-- <td th:text="${instructor.courses}"></td> -->
+            <!-- <td th:text="${instructor.assignments}"></td> -->
         </tr>
     </table>
+    <a href="/courses">View courses</a>
+
     <div th:insert="~{fragments/frags :: logout}">
     </div>
 </body>

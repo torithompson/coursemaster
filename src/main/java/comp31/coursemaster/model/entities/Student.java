@@ -5,6 +5,7 @@ import java.util.List;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.persistence.Column;
@@ -24,7 +25,7 @@ public class Student extends User {
     @Column(name = "student_id")
     Integer id;
 
-    @OneToMany(mappedBy = "student")
+    @ManyToMany(mappedBy = "student")
     List<Course> courses;
     @OneToMany(mappedBy = "student")
     List<Payment> payments;

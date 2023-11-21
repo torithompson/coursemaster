@@ -69,11 +69,13 @@ table tbody tr:hover {
     background-color: #333;
     color: #fff;
     padding: 20px;
-    text-align: center;
     margin-top: -10px;
     margin-bottom: 20px;
     margin-left: -8px;
     margin-right: -8px;
+    display: flex;
+        justify-content: space-between;
+        align-items: center;
 }
 
 .header-title {
@@ -87,4 +89,7 @@ table tbody tr:hover {
 }
 .logout-container {
     margin-top: 40px;
+}
+.back-button {
+    margin-right: 10px;
 }
