@@ -63,7 +63,7 @@ public class Initialize implements CommandLineRunner {
                 // "David", "Dudeson"));
 
                 adminRepo.save(
-                                new Admin(1, "Boss", "coolboss", "admin", "Barrie", "Responsible",
+                                new Admin("Boss", "coolboss", "admin", "Barrie", "Responsible",
                                                 "cool.boss@coursemaster.com",
                                                 "343-987-3645", "over the rainbow", "nowhere", "ontario", "k3e3e3",
                                                 "Canada"));
