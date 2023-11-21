@@ -2,6 +2,7 @@ package comp31.coursemaster.model.entities;
 
 import java.util.List;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -18,6 +19,7 @@ import lombok.NoArgsConstructor;
 public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "course_id")
     Integer id;
     String name;
     String description;
@@ -32,14 +34,15 @@ public class Course {
     Student student;
 
     @OneToMany(mappedBy = "course")
-    List<Assignment> assignments;
+    List<Assignment> assignment;
 
-    public Course(String name, String description, Instructor instructor, Student student, String startDate) {
+    public Course(String name, String description, Instructor instructor, Student students, String startDate, List<Assignment> assignment) {
         this.name = name;
         this.description = description;
         this.instructor = instructor;
         this.startDate = startDate;
-        this.student = student;
+        this.student = students;
+        this.assignment = assignment;
     }
 
 }

@@ -1,0 +1,88 @@
+1                   J E S 2  J O B  L O G  --  S Y S T E M  8 5 6 1  --  N O D E  S V S C J E S 2
+0
+ 14.35.40 JOB06259 ---- WEDNESDAY, 04 OCT 2023 ----
+ 14.35.40 JOB06259  IRR010I  USERID KC03D96  IS ASSIGNED TO THIS JOB.
+ 14.35.40 JOB06259  ICH70001I KC03D96  LAST ACCESS AT 14:35:06 ON WEDNESDAY, OCTOBER 4, 2023
+ 14.35.40 JOB06259  $HASP373 KC03D96P STARTED - INIT 1    - CLASS A        - SYS 8561
+ 14.35.41 JOB06259  -                                      -----TIMINGS (MINS.)------                          -----PAGING COUNTS----
+ 14.35.41 JOB06259  -STEPNAME PROCSTEP    RC   EXCP   CONN       TCB       SRB  CLOCK          SERV  WORKLOAD  PAGE  SWAP   VIO SWAPS
+ 14.35.41 JOB06259  -STEP1                00     37      3       .00       .00     .0             4  BATCH        0     0     0     0
+ 14.35.41 JOB06259  -KC03D96P ENDED.  NAME-                     TOTAL TCB CPU TIME=      .00 TOTAL ELAPSED TIME=    .0
+ 14.35.41 JOB06259  $HASP395 KC03D96P ENDED - RC=0000
+0------ JES2 JOB STATISTICS ------
+-  04 OCT 2023 JOB EXECUTION DATE
+-           81 CARDS READ
+-           91 SYSOUT PRINT RECORDS
+-            0 SYSOUT PUNCH RECORDS
+-            8 SYSOUT SPOOL KBYTES
+-         0.00 MINUTES EXECUTION TIME
+         1 //KC03D96P JOB 'TREVOR WITHERS',                                        JOB06259
+           //             MSGCLASS=H,
+           //             MSGLEVEL=(1,1),
+           //             NOTIFY=KC03D96
+           //*
+           //* TREVOR WITHERS
+           //* THIS PROGRAM USES IEBGENER TO CREATE A SEQUENTIAL DATA SET
+           //*
+           //* QUESTION 2 A)
+           //* //ACCTING  JOB MSGCLASS=M,
+           //* //             MSGLEVEL=(2,0),
+           //* //             NOTIFY=KC03D96
+           //*
+           //* QUESTION 2 B)
+           //* //KC03D96  JOB 'TREVOR WITHERS',
+           //* //             MSGCLASS=U,
+           //* //             MSGLEVEL=(0,1),
+           //* //             TYPRUN=SCAN
+           //*
+           //* QUESTION 3 A)
+           //* //RPTOCT   DD OUTPUT=G
+           //*
+           //* QUESTION 3 B)
+           //* //MSTSLS   DD DSN=SALES.MASTER,
+           //* //             DCB=(LRECL=300,BLKSIZE=1500,RECFM=FB),
+           //* //             SPACE=(1500,(6000,200))
+           //*
+           //* QUESTION 3 C)
+           //* //INDATA   DD *
+           //*
+         2 //STEP1    EXEC PGM=IEBGENER
+           //*
+         3 //SYSPRINT DD SYSOUT=H
+           //*
+         4 //SYSUT1   DD *
+           //*
+         5 //SYSUT2   DD DSN=KC03D96.COMP52.TREVOR.POLYFILE,
+           //             DISP=(NEW,KEEP,DELETE),
+           //             DCB=(LRECL=80,BLKSIZE=800,RECFM=FB),
+           //             SPACE=(800,4)
+           //*
+         6 //SYSIN    DD DUMMY
+ ICH70001I KC03D96  LAST ACCESS AT 14:35:06 ON WEDNESDAY, OCTOBER 4, 2023
+ IEFA111I KC03D96P IS USING THE FOLLOWING JOB RELATED SETTINGS:
+          SWA=ABOVE,TIOT SIZE=32K,DSENQSHR=DISALLOW,GDGBIAS=JOB
+ IEF236I ALLOC. FOR KC03D96P STEP1
+ IEF237I JES2 ALLOCATED TO SYSPRINT
+ IEF237I JES2 ALLOCATED TO SYSUT1
+ IGD101I SMS ALLOCATED TO DDNAME (SYSUT2  )
+         DSN (KC03D96.COMP52.TREVOR.POLYFILE              )
+         STORCLAS (PRIM90) MGMTCLAS (        ) DATACLAS (        )
+         VOL SER NOS= KCTR49
+ IEF237I DMY  ALLOCATED TO SYSIN
+ IEF142I KC03D96P STEP1 - STEP WAS EXECUTED - COND CODE 0000
+ IEF285I   KC03D96.KC03D96P.JOB06259.D0000102.?         SYSOUT
+ IEF285I   KC03D96.KC03D96P.JOB06259.D0000101.?         SYSIN
+ IGD104I KC03D96.COMP52.TREVOR.POLYFILE               RETAINED,  DDNAME=SYSUT2
+ IEF373I STEP/STEP1   /START 2023277.1435
+ IEF032I STEP/STEP1   /STOP  2023277.1435
+         CPU:     0 HR  00 MIN  00.00 SEC    SRB:     0 HR  00 MIN  00.00 SEC
+         VIRT:    68K  SYS:   280K  EXT:       12K  SYS:    11304K
+         ATB- REAL:                  1268K  SLOTS:                     0K
+              VIRT- ALLOC:      16M SHRD:       0M
+ IEF375I  JOB/KC03D96P/START 2023277.1435
+ IEF033I  JOB/KC03D96P/STOP  2023277.1435
+         CPU:     0 HR  00 MIN  00.00 SEC    SRB:     0 HR  00 MIN  00.00 SEC
+1DATA SET UTILITY - GENERATE                                                                       PAGE 0001
+-
+ PROCESSING ENDED AT EOD
+

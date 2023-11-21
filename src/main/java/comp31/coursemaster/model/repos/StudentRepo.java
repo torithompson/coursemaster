@@ -10,6 +10,8 @@ public interface StudentRepo extends CrudRepository<Student, Integer> {
 
     public Student findStudentById(int id);
 
+    
+
     public int findGradeById(int id);
 
 }
