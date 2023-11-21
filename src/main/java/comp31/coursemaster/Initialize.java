@@ -50,7 +50,7 @@ public class Initialize implements CommandLineRunner {
 
                 // courses
                 Course course = new Course("Math", "College math", instructorRepo.findInstructorById(1),
-                                studentRepo.findStudentById(1), "2021-09-01");
+                                studentRepo.findStudentById(1), "2021-09-01", null);
                 courseRepo.save(course);
                 // Payment
                 Payment payment = new Payment(studentRepo.findStudentById(1), 100, 1, "Bob", "Smith");

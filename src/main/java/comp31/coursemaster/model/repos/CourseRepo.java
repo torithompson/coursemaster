@@ -11,5 +11,7 @@ public interface CourseRepo extends CrudRepository<Course, Integer> {
 
     public Course findCourseById(Integer id);
 
+    public List<Course> findCourseByStudent_Id(Integer student_Id);
+
     public Course findCourseByName(String name);
 }
