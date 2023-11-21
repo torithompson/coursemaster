@@ -8,6 +8,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import lombok.Data;
@@ -29,9 +30,9 @@ public class Course {
     @JoinColumn(name = "instructor_id")
     Instructor instructor;
 
-    @ManyToOne
+    @ManyToMany
     @JoinColumn(name = "student_id")
-    Student student;
+    List<Student> students;
 
     @OneToMany(mappedBy = "course")
     List<Assignment> assignment;
@@ -44,7 +45,5 @@ public class Course {
         this.student = student;
         this.assignment = assignment;
     }
-
-
 
 }
