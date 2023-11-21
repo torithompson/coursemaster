@@ -8,8 +8,8 @@ import comp31.coursemaster.model.entities.Student;
 public interface StudentRepo extends CrudRepository<Student, Integer> {
     public List<Student> findAll();
 
-    public Student getStudentById(int id);
+    public Student findStudentById(int id);
 
-    public int getGradeById(int id);
+    public int findGradeById(int id);
 
 }

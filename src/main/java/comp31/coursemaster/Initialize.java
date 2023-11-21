@@ -34,9 +34,9 @@ public class Initialize implements CommandLineRunner {
     public void run(String... args) throws Exception {
         // Add your initialization code here
 
-        Payment payment = new Payment(studentRepo.getStudentById(1), 100, 1, "Bob", "Smith");
+        Payment payment = new Payment(studentRepo.findStudentById(1), 100, 1, "Bob", "Smith");
         Course mathCourse = new Course("Math", "College math", 1,
-                        studentRepo.getStudentById(1), "2021-09-01");
+                        studentRepo.findStudentById(1), "2021-09-01");
         List<Course> courses = Arrays.asList(mathCourse);
         List<Payment> payments = Arrays.asList(payment);
 
@@ -48,9 +48,9 @@ public class Initialize implements CommandLineRunner {
         // courses
         // Payment
         paymentRepo.save(payment);
-        paymentRepo.save(new Payment(studentRepo.getStudentById(2), 20000, 1, "Charles", "Cuthbert"));
-        paymentRepo.save(new Payment(studentRepo.getStudentById(3), 0, 0, "Jermaine", "Jerm"));
-        paymentRepo.save(new Payment(studentRepo.getStudentById(4), -780, 1, "David", "Dudeson"));
+        paymentRepo.save(new Payment(studentRepo.findStudentById(2), 20000, 1, "Charles", "Cuthbert"));
+        paymentRepo.save(new Payment(studentRepo.findStudentById(3), 0, 0, "Jermaine", "Jerm"));
+        paymentRepo.save(new Payment(studentRepo.findStudentById(4), -780, 1, "David", "Dudeson"));
 
         adminRepo.save(
                 new Admin(1, "Boss", "coolboss", "admin", "Barrie", "Responsible", "cool.boss@coursemaster.com",
