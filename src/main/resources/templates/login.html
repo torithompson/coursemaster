@@ -9,8 +9,8 @@
 </head>
 
 <body>
-        <div th:insert="~{fragments/frags :: header}" class="header">
-        </div>
+    <div th:insert="~{fragments/frags :: header}" class="header">
+    </div>
     <h2>Login</h2>
     <form action="/login" method="post" th:object="${user}">
         <label>User Id</label>

@@ -21,11 +21,13 @@ public class MainController {
         this.loginService = loginService;
     }
 
+    // Handling the GET request to root
     @GetMapping("/")
     public String getRoot() {
         return "index";
     }
 
+    // Handling the GET request to /login
     @GetMapping("/login")
     public String getRoot(Model model) {
         User user = new User();
@@ -33,6 +35,7 @@ public class MainController {
         return "login";
     }
 
+    // Handling the POST request to /login
     @PostMapping("/login")
     public String getLogin(@RequestParam String userId, User user, Model model) {
         String validatedLogin = loginService.login(userId, user, model);

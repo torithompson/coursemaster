@@ -12,10 +12,39 @@
 <body>
     <div th:insert="~{fragments/frags :: header}" class="header">
     </div>
-    <p>I am the best student</p>
-    <a href="/payment">View payment balance</a>
-    <div th:insert="~{fragments/frags :: logout}">
-    </div>
+    <table border="solid">
+        <tr>
+            <th>Student Number</th>
+            <th>User Name</th>
+            <th>Password</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Address</th>
+            <th>Postal Code</th>
+            <th>City</th>
+            <th>Province</th>
+            <th>Country</th>
+            <th>Grades</th>
+            <th>Payments</th>
+        </tr>
+        <tr th:each="student:${students}">
+            <td th:text="${student.id}"></td>
+            <td th:text="${student.username}"></td>
+            <td th:text="${student.password}"></td>
+            <td th:text="${student.firstName}"></td>
+            <td th:text="${student.lastName}"></td>
+            <td th:text="${student.email}"></td>
+            <td th:text="${student.phoneNumber}"></td>
+            <td th:text="${student.address}"></td>
+            <td th:text="${student.postalCode}"></td>
+            <td th:text="${student.city}"></td>
+            <td th:text="${student.province}"></td>
+            <td th:text="${student.country}"></td>
+        </tr>
+    </table>
+<a href="/payment">View payment balance</a>
 </body>
 
 </html>
