@@ -1,7 +1,5 @@
 package comp31.coursemaster.model.entities;
 
-import java.util.List;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -38,13 +36,6 @@ public class Course {
         this.student = student;
     }
 
-    public void setStudents(List<Student> asList) {
-    }
 
-    public void setInstructors(List<Instructor> asList) {
-    }
-
-    public void setPayments(List<Object> asList) {
-    }
 
 }
