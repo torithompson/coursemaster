@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,12 +21,12 @@ public class Assignment {
     String dueDate;
     String grade;
     String student;
-    String course;
 
     @ManyToOne
-    Instructor instructor;
+    @JoinColumn(name = "course_id")
+    Course course;
 
-    public Assignment(String name, String description, String dueDate, String grade, String course, Student student) {
+    public Assignment(String name, String description, String dueDate, String grade, Course course, Student student) {
         this.name = name;
         this.description = description;
         this.dueDate = dueDate;
