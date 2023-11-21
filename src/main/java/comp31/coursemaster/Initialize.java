@@ -1,6 +1,5 @@
 package comp31.coursemaster;
 
-import java.util.List;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -83,10 +82,6 @@ public class Initialize implements CommandLineRunner {
         // paymentRepo.save(new Payment(studentRepo.getStudentById(4).getId(), -780, 1,
         // "David", "Dudeson"));
 
-        adminRepo.save(
-                new Admin(1, "Boss", "coolboss", "admin", "Barrie", "Responsible", "cool.boss@coursemaster.com",
-                        "343-987-3645", "over the rainbow", "nowhere", "ontario", "k3e3e3", "Canada"));
-
         // Courses
         courseRepo.save(new Course("MATH101", "Introduction to Mathematics", instructorRepo.findById(1),
                 studentRepo.findAll(), "2023-09-01"));
@@ -101,7 +96,7 @@ public class Initialize implements CommandLineRunner {
 
         // Instructor
         // instructorRepo.save(new Instructor(""));
-        adminRepo.save(new Admin(1, "Boss", "coolboss", "admin", "Barrie", "Responsible",
+        adminRepo.save(new Admin("Boss", "coolboss", "admin", "Barrie", "Responsible",
                 "cool.boss@coursemaster.com",
                 "343-987-3645", "over the rainbow", "nowhere", "ontario", "k3e3e3",
                 "Canada"));
