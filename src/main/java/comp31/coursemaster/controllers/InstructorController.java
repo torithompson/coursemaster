@@ -4,8 +4,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import comp31.coursemaster.model.entities.Assignment;
 import comp31.coursemaster.model.entities.Instructor;
 import comp31.coursemaster.services.InstructorService;
+import org.springframework.web.bind.annotation.PostMapping;
+
 
 @Controller
 public class InstructorController {
@@ -30,5 +33,10 @@ public class InstructorController {
     @GetMapping("/assignments")
     public String getAssignments() {
         return "assignments";
+    }
+
+    @PostMapping("/createAssignment")
+    public Assignment createAssignment(Assignment assignment) {
+        return assignment;
     }
 }

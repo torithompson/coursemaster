@@ -13,7 +13,7 @@
     </div>
     <h2>Instructor Page</h2>
 
-    <table>
+    <table border="solid 1px">
         <thead>
             <td>Username</td>
             <td>Password</td>
@@ -48,6 +48,24 @@
         </tr>
     </table>
     <a href="/courses">View courses</a>
+
+    <h3>Create New Assignment</h3>
+    <form action="/createAssignment">
+        <label for="assignmentName">Assignment Name</label>
+        <input type="text" name="assignmentName" id="">
+
+        <label for="assignmentDescription">Assignment Description</label>
+        <input type="text" name="assignmentDescription">
+
+        <label for="assignmentDueDate">Due Date</label>
+        <input type="text" name="assignmentDueDate">
+
+        <label for=""></label>
+        <input type="text" name="" id="">
+
+        <input type="submit" value="Create Assignment">
+    </form>
+
 
     <div th:insert="~{fragments/frags :: logout}">
     </div>
