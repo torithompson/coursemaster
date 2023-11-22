@@ -14,7 +14,7 @@
     <h2>Login</h2>
     <form action="/login" method="post" th:object="${user}">
         <label>User Id</label>
-        <input type="text" name="userId">
+        <input type="text" name="userName" th:field="*{username}">
         <br>
         <label>Password</label>
         <input type="password" name="password">

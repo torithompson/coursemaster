@@ -44,36 +44,44 @@ public class Initialize implements CommandLineRunner {
                 new Student("student", "password", "student", "Bob", "Smith", "bob.smith@school.com",
                         "343-222-2222",
                         "123 test st", "napanee", "ontario", "k3e3e3", "Canada", null,
-                        null));
+                                        null));
         instructorRepo.save(new Instructor("instructor", "password", "instructor", "Charles", "Cuthbert",
                 "charles.cuthbert@coursemaster.com",
                         "343-222-2222", "123 test st", "napanee", "ontario", "k3e3e3", "Canada", null));
 
+                // courses
+                Course course = new Course("Math", "College math", instructorRepo.findById(1), studentRepo.findAll(),
+                                "2021-09-01", null);
+                courseRepo.save(course);
+                // Payment
+                Payment payment = new Payment(studentRepo.findStudentById(1), 100, 1, "Bob", "Smith");
+                paymentRepo.save(payment);
+                // paymentRepo.save(new Payment(studentRepo.getStudentById(2).getId(), 20000, 1,
+                // "Charles", "Cuthbert"));
+                // paymentRepo.save(new Payment(studentRepo.getStudentById(3).getId(), 0, 0,
+                // "Jermaine", "Jerm"));
+                // paymentRepo.save(new Payment(studentRepo.getStudentById(4).getId(), -780, 1,
+                // "David", "Dudeson"));
         // Students
         studentRepo.save(
                 new Student("Bob", "password", "student", "Bob", "Smith", "bob.smith@school.com",
                         "343-222-2222",
                         "123 test st", "napanee", "ontario", "k3e3e3", "Canada", null,
-                        null));
+                                        null));
 
         studentRepo.save(new Student("Alice", "password", "student", "Alice", "Johnson", "alice.johnson@school.com",
                 "555-111-1111", "456 Main St", "Springfield", "Illinois", "62701", "USA",
-                paymentRepo.findAll(), courseRepo.findAll()));
+                        paymentRepo.findAll(), courseRepo.findAll()));
 
         studentRepo.save(new Student("Charlie", "password", "student", "Charlie", "Brown", "charlie.brown@school.com",
                 "555-222-2222", "789 Oak St", "Rivertown", "Mississippi", "12345", "USA",
-                paymentRepo.findAll(), courseRepo.findAll()));
+                        paymentRepo.findAll(), courseRepo.findAll()));
 
         instructorRepo.save(new Instructor("Charles", "password", "instructor", "Charles", "Cuthbert",
                 "charles.cuthbert@coursemaster.com",
                         "343-222-2222", "123 test st", "napanee", "ontario", "k3e3e3", "Canada", null));
 
-        // courses
-        Course course = new Course("Math", "College math", instructorRepo.findById(1),
-                        studentRepo.findStudentById(1), "2021-09-01");
         courseRepo.save(course);
-        // Payment
-        Payment payment = new Payment(studentRepo.findStudentById(1), 100, 1, "Bob", "Smith");
         paymentRepo.save(payment);
         // paymentRepo.save(new Payment(studentRepo.getStudentById(2).getId(), 20000, 1,
         // "Charles", "Cuthbert"));
@@ -84,18 +92,15 @@ public class Initialize implements CommandLineRunner {
 
         // Courses
         courseRepo.save(new Course("MATH101", "Introduction to Mathematics", instructorRepo.findById(1),
-                        studentRepo.findStudentById(1), "2023-09-01"));
+                        studentRepo.findAll(), "2023-09-01", null));
         courseRepo.save(new Course("PHYS201", "Physics for Engineers", instructorRepo.findById(2),
-                        studentRepo.findStudentById(1), "2023-09-05"));
-        courseRepo.save(new Course("ENG101", "English Composition", instructorRepo.findById(3),
-                        studentRepo.findStudentById(1),
-                "2023-09-10"));
-        courseRepo.save(new Course("HIST202", "World History II", instructorRepo.findById(4),
-                        studentRepo.findStudentById(1),
-                "2023-09-15"));
-        courseRepo.save(new Course("CS301", "Advanced Algorithms", instructorRepo.findById(5),
-                        studentRepo.findStudentById(1),
-                "2023-09-20"));
+                        studentRepo.findAll(), "2023-09-05", null));
+        courseRepo.save(new Course("ENG101", "English Composition", instructorRepo.findById(3), studentRepo.findAll(),
+                        "2023-09-10", null));
+        courseRepo.save(new Course("HIST202", "World History II", instructorRepo.findById(4), studentRepo.findAll(),
+                        "2023-09-15", null));
+        courseRepo.save(new Course("CS301", "Advanced Algorithms", instructorRepo.findById(5), studentRepo.findAll(),
+                        "2023-09-20", null));
 
         // Instructor
         // instructorRepo.save(new Instructor(""));

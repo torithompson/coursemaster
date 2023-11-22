@@ -25,7 +25,7 @@ public class Instructor extends User {
     Integer id;
 
     @OneToMany(mappedBy = "instructor")
-    List<Course> courses;
+    private List<Course> courses;
 
     public Instructor(String username, String password, String permissions,
             String firstName, String lastName, String email, String phoneNumber,

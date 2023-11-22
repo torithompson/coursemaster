@@ -25,10 +25,11 @@ public class Student extends User {
     @Column(name = "student_id")
     Integer id;
 
-    @ManyToMany(mappedBy = "student")
-    List<Course> courses;
+    @ManyToMany
+    private List<Course> courses;
+
     @OneToMany(mappedBy = "student")
-    List<Payment> payments;
+    private List<Payment> payments;
 
     public Student(String username, String password, String permissions,
             String firstName, String lastName, String email, String phoneNumber,
