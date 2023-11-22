@@ -22,23 +22,24 @@ public class Assignment {
     String description;
     String dueDate;
     String grade;
-    String student;
     String path;
 
     @ManyToOne
     @JoinColumn(name = "course_id")
-    Course course;
-    @ManyToOne
-    Instructor instructor;
+    private Course course;
 
-    public Assignment(String name, String description, String dueDate, String grade, Course course, Student student,
-            String path) {
+    @ManyToOne
+    @JoinColumn(name = "instructor_id")
+    private Instructor instructor;
+
+    public Assignment(String name, String description, String dueDate, String grade, Course course,
+            String path, Instructor instructor) {
         this.name = name;
         this.description = description;
         this.dueDate = dueDate;
         this.grade = grade;
         this.course = course;
-        this.student = student.toString();
         this.path = path;
+        this.instructor = instructor;
     }
 }

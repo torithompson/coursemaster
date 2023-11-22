@@ -8,6 +8,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import lombok.Data;
@@ -27,22 +28,23 @@ public class Course {
 
     @ManyToOne
     @JoinColumn(name = "instructor_id")
-    Instructor instructor;
+    private Instructor instructor;
 
-    @ManyToOne
+    @ManyToMany
     @JoinColumn(name = "student_id")
-    Student student;
+    private List<Student> student;
 
     @OneToMany(mappedBy = "course")
-    List<Assignment> assignment;
+    private List<Assignment> assignments;
 
-    public Course(String name, String description, Instructor instructor, Student students, String startDate, List<Assignment> assignment) {
+    public Course(String name, String description, Instructor instructor, List<Student> students, String startDate,
+            List<Assignment> assignment) {
         this.name = name;
         this.description = description;
         this.instructor = instructor;
         this.startDate = startDate;
         this.student = students;
-        this.assignment = assignment;
+        this.assignments = assignment;
     }
 
 }

@@ -29,7 +29,7 @@ public class MainController {
 
     // Handling the GET request to /login
     @GetMapping("/login")
-    public String getRoot(Model model) {
+    public String getLogin(Model model) {
         User user = new User();
         model.addAttribute("user", user);
         return "login";
@@ -37,8 +37,8 @@ public class MainController {
 
     // Handling the POST request to /login
     @PostMapping("/login")
-    public String getLogin(@RequestParam String userId, User user, Model model) {
-        String validatedLogin = loginService.login(userId, user, model);
+    public String getLogin(@RequestParam String username, User user, Model model) {
+        String validatedLogin = loginService.login(username, user, model);
         return validatedLogin;
     }
 

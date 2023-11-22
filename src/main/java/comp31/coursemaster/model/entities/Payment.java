@@ -28,7 +28,7 @@ public class Payment {
 
     @ManyToOne
     @JoinColumn(name = "student_id")
-    Student student;
+    private Student student;
 
     public Payment(Student student, Integer amountOwed, Integer paymentStatus, String firstName, String lastName) {
         this.student = student;

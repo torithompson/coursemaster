@@ -4,7 +4,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import comp31.coursemaster.model.entities.User;
-import lombok.NoArgsConstructor;
 
 /*
  * LoginService 
@@ -12,17 +11,19 @@ import lombok.NoArgsConstructor;
  * Completed by Tori Thompson
  */
 @Service
-@NoArgsConstructor
 public class LoginService {
+    UserService userService;
+
+    public LoginService(UserService userService) {
+        this.userService = userService;
+    }
 
     public String login(String username, User user, Model model) {
         if (username.equals("admin") && user.getPassword().equals("password"))
             return "redirect:/admin";
         else if (username.equals("student") && user.getPassword().equals("password")) {
-            Integer studentId = user.getId();
-            model.addAttribute("studentId", studentId);
-            model.addAttribute("username", username);
-            return "redirect:/student";
+            Integer id = userService.findUserIdByUserName(username);
+            return "redirect:/student?id=" + id;
         } else if (username.equals("instructor") && user.getPassword().equals("password"))
             return "redirect:/instructor";
         else

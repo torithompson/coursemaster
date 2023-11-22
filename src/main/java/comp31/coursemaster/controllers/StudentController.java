@@ -24,9 +24,10 @@ public class StudentController {
     }
 
     @GetMapping("/student")
-    public String getStudent(Model model, @RequestParam Integer userId) {
-        model.addAttribute("students", userService.findStudents());
-        model.addAttribute("courses", userService.findCourses(userId));
+    public String getStudent(Model model, @RequestParam Integer id) {
+        System.out.println("id: " + id);
+        model.addAttribute("student", userService.findStudentById(id));
+        model.addAttribute("courses", userService.findCourses(id));
         return "student";
     }
 
