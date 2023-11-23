@@ -5,9 +5,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import comp31.coursemaster.model.entities.Assignment;
-import comp31.coursemaster.model.entities.Instructor;
 import comp31.coursemaster.services.InstructorService;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Controller
@@ -19,14 +19,15 @@ public class InstructorController {
     }
 
     @GetMapping("/instructor")
-    public String getInstructor(Model model) {
-        model.addAttribute("instructor", new Instructor());
+    public String getInstructor(Model model, @RequestParam int id) {
+        model.addAttribute("instructor_id", id);
+        model.addAttribute("instructor", instructorService.findById(id));
         return "instructor";
     }
 
     @GetMapping("/courses")
     public String getCourses(Model model) {
-        model.addAttribute("courses", instructorService.findAll());
+        model.addAttribute("courses", instructorService.findAllCourses());
         return "courses";
     }
 

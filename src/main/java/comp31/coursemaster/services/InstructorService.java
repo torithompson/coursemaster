@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import comp31.coursemaster.model.entities.Assignment;
 import comp31.coursemaster.model.entities.Course;
+import comp31.coursemaster.model.entities.Instructor;
 import comp31.coursemaster.model.entities.Student;
 import comp31.coursemaster.model.repos.CourseRepo;
 import comp31.coursemaster.model.repos.InstructorRepo;
@@ -20,6 +21,10 @@ public class InstructorService {
         this.courseRepo = courseRepo;
     }
 
+    public Instructor findById(int id){
+        return instructorRepo.findById(id);
+    }
+
     public List<Course> GetAssignedCourses() {
         return null;
     }
@@ -32,7 +37,7 @@ public class InstructorService {
         new Assignment();
     }
 
-    public List<Course> findAll() {
+    public List<Course> findAllCourses() {
         return courseRepo.findAll();
     }
 }
