@@ -53,4 +53,8 @@ public class UserService {
     public String findPermissionsByUserName(String username) {
         return userRepo.findPermissionsByUsername(username);
     }
+
+    public String findPasswordByUsername(String username) {
+        return userRepo.findPasswordByUsername(username);
+    }
 }

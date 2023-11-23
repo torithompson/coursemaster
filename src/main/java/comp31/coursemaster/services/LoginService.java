@@ -21,12 +21,12 @@ public class LoginService {
     public String login(String username, User user, Model model) {
         Integer id = userService.findUserIdByUserName(username);
         String permissions = userService.findPermissionsByUserName(username);
-    
-        if ("admin".equals(permissions) && "password".equals(user.getPassword())) {
+        String password = userService.findPasswordByUsername(username);
+        if ("admin".equals(permissions) && password.equals(user.getPassword())) {
             return "redirect:/admin?id=" + id;
-        } else if ("student".equals(permissions) && "password".equals(user.getPassword())) {
+        } else if ("student".equals(permissions) && password.equals(user.getPassword())) {
             return "redirect:/student?id=" + id;
-        } else if ("instructor".equals(permissions) && "password".equals(user.getPassword())) {
+        } else if ("instructor".equals(permissions) && password.equals(user.getPassword())) {
             return "redirect:/instructor?id=" + id;
         } else {
             return "login";

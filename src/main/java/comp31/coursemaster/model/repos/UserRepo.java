@@ -14,4 +14,7 @@ public interface UserRepo extends CrudRepository<User, Integer> {
 
     @Query("SELECT u.permissions FROM User u WHERE u.username = :username")
     String findPermissionsByUsername(String username);
+
+    @Query("SELECT u.password FROM User u WHERE u.username = :username")
+    String findPasswordByUsername(String username);
 }
