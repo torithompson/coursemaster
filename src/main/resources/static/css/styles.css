@@ -54,10 +54,12 @@ table thead th {
 table tbody td {
     border: 1px solid #ddd;
     padding: 10px;
+    min-width: 100px;
+    background-color: #f5f5f5;
 }
 
 table tbody tr:hover {
-    background-color: #f5f5f5;
+    background-color: lightgray;
 }
 
 .dropdown-style {
@@ -65,6 +67,21 @@ table tbody tr:hover {
     border: 1px solid #ccc;
     padding: 5px;
 }
+
+select {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 8px;
+    border-radius: 4px;
+    font-size: 14px;
+    width: 200px;
+  }
+
+  select:hover, select:focus {
+    border-color: #3498db;
+  }
+
+
 .header-container {
     background-color: #333;
     color: #fff;
