@@ -18,6 +18,7 @@ public class AdminService {
     public void addAdmin(
         String username, 
         String password, 
+        String permissions,
         String firstName,
         String lastName, 
         String email, 
@@ -30,7 +31,7 @@ public class AdminService {
             Admin admin = new Admin();
             admin.setUsername(username);
             admin.setPassword(password);
-            admin.setPermissions("admin");
+            admin.setPermissions(permissions);
             admin.setFirstName(firstName);
             admin.setLastName(lastName);
             admin.setEmail(email);
