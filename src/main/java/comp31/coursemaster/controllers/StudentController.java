@@ -33,10 +33,12 @@ public class StudentController {
 
     
     @PostMapping("/uploadAssignment")
-    public String handleFileUpload(@RequestParam("file") MultipartFile file) {
+    public String handleFileUpload(@RequestParam("file") MultipartFile file, @RequestParam Integer id) {
+
         if (file.isEmpty()) {
             // Handle empty file
-            return "redirect:/student?uploadFailedEmpty";
+            
+            return "redirect:/student?id=" + id + "&uploadFailedEmpty";
         }
 
         try {
@@ -53,22 +55,21 @@ public class StudentController {
             // You can now perform further processing or save the file path to a database
 
         } catch (IOException e) {
+
             // Handle file I/O exception
-            return "redirect:/student?uploadFailedCatch";
+            return "redirect:/student?id=" + id + "&uploadFailedCatch";
         }
 
-
-
-        return "redirect:/student?uploadSuccess"; // Redirect to a relevant page after file upload
+        return "redirect:/student?id=" + id + "&uploadSuccess"; // Redirect to a relevant page after file upload
     }
 
-    @GetMapping("/enrolledCourses")
-    public String getEnrolledCourses() {
-        return "student";
-    }
+    // @GetMapping("/enrolledCourses")
+    // public String getEnrolledCourses() {
+    //     return "student";
+    // }
 
-    @GetMapping("/courseInfo")
-    public String getCourseInfo() {
-        return "student";
-    }
+    // @GetMapping("/courseInfo")
+    // public String getCourseInfo() {
+    //     return "student";
+    // }
 }

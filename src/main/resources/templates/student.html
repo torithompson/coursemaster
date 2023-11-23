@@ -45,6 +45,7 @@
                 <option th:each="course:${courses}" th:text="${course.name}" required="true"></option>
             </select>
             <input type="file" name="file" id="fileInput" style="display: none;" />
+            <input type="text" name="id" th:value="${student_id}" style="display: none;">
             <button type="button" onclick="document.getElementById('fileInput').click();">Upload Assignment</button>
             <button type="submit">Submit</button>
         </form>
