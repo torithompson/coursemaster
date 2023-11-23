@@ -19,14 +19,16 @@ public class LoginService {
     }
 
     public String login(String username, User user, Model model) {
-        if (username.equals("admin") && user.getPassword().equals("password"))
-            return "redirect:/admin";
-        else if (username.equals("student") && user.getPassword().equals("password")) {
-            Integer id = userService.findUserIdByUserName(username);
+        Integer id = userService.findUserIdByUserName(username);
+        // String permission = userService.findPermissionsByUsername(username);
+        if (username.equals("admin") && user.getPassword().equals("password")) {
+            return "redirect:/admin?id=" + id;
+
+        } else if (username.equals("student") && user.getPassword().equals("password")) {
             return "redirect:/student?id=" + id;
-        } else if (username.equals("instructor") && user.getPassword().equals("password"))
-            return "redirect:/instructor";
-        else
+        } else if (username.equals("instructor") && user.getPassword().equals("password")){
+            return "redirect:/instructor?id=" + id;
+        } else
             return "login";
     }
 }
