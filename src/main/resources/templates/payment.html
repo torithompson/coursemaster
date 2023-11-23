@@ -25,14 +25,14 @@
 
     <table border="solid">
         <thead>
-            <th>Student ID</th>
+            <!-- <th>Student ID</th> -->
             <th>First Name</th>
             <th>Last name</th>
             <th>Amount Owed</th>
             <th>Payment status</th>
         </thead>
         <tr th:each="payment:${Payments}">
-            <td th:text="${payment.student.id}"></td>
+            <!-- <td th:text="${payment.student.id}"></td> -->
             <td th:text="${payment.firstName}"></td>
             <td th:text="${payment.lastName}"></td>
             <td th:text="${payment.amountOwed}"></td>

@@ -15,22 +15,24 @@
 
     <table border="solid 1px">
         <thead>
-            <td>Username</td>
-            <td>Password</td>
-            <td>Permissions</td>
-            <td>First Name</td>
-            <td>Last Name</td>
-            <td>Email</td>
-            <td>Phone Number</td>
-            <td>Address</td>
-            <td>City</td>
-            <td>Province</td>
-            <td>Postal Code</td>
-            <td>Country</td>
-            <td>Courses</td>
-            <td>Assignments</td>
+            <th>Employee ID</th>
+            <th>Username</th>
+            <th>Password</th>
+            <th>Permissions</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>Province</th>
+            <th>Postal Code</th>
+            <th>Country</th>
+            <!-- <th>Courses</th>
+            <th>Assignments</th> -->
         </thead>
-        <tr th:each="instructor,row:${instructors}">
+        <tr th:each="instructor,row:${instructor}">
+            <td th:text="${instructor_id}"></td>
             <td th:text="${instructor.username}"></td>
             <td th:text="${instructor.password}"></td>
             <td th:text="${instructor.permissions}"></td>

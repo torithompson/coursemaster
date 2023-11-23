@@ -65,7 +65,7 @@
             <th>Country</th>
         </thead>
         <tr th:each="admins,row:${allAdmins}">
-            <td th:text="${admins.id}"></td>
+            <td th:text="${admin_id}"></td>
             <td th:text="${admins.username}"></td>
             <td th:text="${admins.password}"></td>
             <td th:text="${admins.firstName}"></td>
