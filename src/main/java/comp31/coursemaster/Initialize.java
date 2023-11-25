@@ -1,3 +1,5 @@
+//author: Fidy Fiaferana, Emma Lavigne, Ethan Watson, Tori Thompson, Trevor Withers
+
 package comp31.coursemaster;
 
 import org.springframework.boot.CommandLineRunner;
