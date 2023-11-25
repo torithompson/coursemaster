@@ -26,6 +26,7 @@ public class AdminController {
 
     @PostMapping("/add-admin")
     public String addNewAdmin(Model model, Admin admin) {
+        admin.setPermissions("admin");
         adminService.addAdmin(admin);
         return "redirect:/admin";
     }

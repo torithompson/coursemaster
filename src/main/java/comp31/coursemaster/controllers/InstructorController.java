@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import comp31.coursemaster.model.entities.Assignment;
 import comp31.coursemaster.services.InstructorService;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 // Ethan Watson
 
@@ -19,9 +20,16 @@ public class InstructorController {
     }
 
     @GetMapping("/instructor")
-    public String getInstructor(Model model) {
-        model.addAttribute("instructor", instructorService.getInstructor(1));
+    public String getInstructor(Model model, @RequestParam int id) {
+        model.addAttribute("instructor_id", id);
+        model.addAttribute("instructor", instructorService.findById(id));
         return "instructor";
+    }
+
+    @GetMapping("/courses")
+    public String getCourses(Model model) {
+        model.addAttribute("courses", instructorService.getAllCourses());
+        return "courses";
     }
 
     @GetMapping("/assignments")

@@ -23,6 +23,10 @@ public class InstructorService {
         this.courseRepo = courseRepo;
     }
 
+    public Instructor findById(int id) {
+        return instructorRepo.findById(id);
+    }
+
     public List<Course> GetAssignedCourses() {
         return null;
     }

@@ -11,4 +11,10 @@ import comp31.coursemaster.model.entities.User;
 public interface UserRepo extends CrudRepository<User, Integer> {
     @Query("SELECT u.id FROM User u WHERE u.username = :username")
     Integer findIdByUsername(@Param("username") String username);
+
+    @Query("SELECT u.permissions FROM User u WHERE u.username = :username")
+    String findPermissionsByUsername(String username);
+
+    @Query("SELECT u.password FROM User u WHERE u.username = :username")
+    String findPasswordByUsername(String username);
 }

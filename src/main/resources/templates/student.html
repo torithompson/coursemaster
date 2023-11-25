@@ -13,7 +13,6 @@
             <thead>
                 <th>Student Number</th>
                 <th>User Name</th>
-                <th>Password</th>
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>Email</th>
@@ -25,9 +24,8 @@
                 <th>Country</th>
             </thead>
             <tr>
-                <td th:text="${student.id}"></td>
+                <td th:text="${student_id}"></td>
                 <td th:text="${student.username}"></td>
-                <td th:text="${student.password}"></td>
                 <td th:text="${student.firstName}"></td>
                 <td th:text="${student.lastName}"></td>
                 <td th:text="${student.email}"></td>
@@ -47,6 +45,7 @@
                 <option th:each="course:${courses}" th:text="${course.name}" required="true"></option>
             </select>
             <input type="file" name="file" id="fileInput" style="display: none;" />
+            <input type="text" name="id" th:value="${student_id}" style="display: none;">
             <button type="button" onclick="document.getElementById('fileInput').click();">Upload Assignment</button>
             <button type="submit">Submit</button>
         </form>
@@ -75,5 +74,7 @@
             }
         </script>
         <a href="/payment">View payment balance</a>
+        <div th:insert="~{fragments/frags :: logout}">
+        </div>
     </body>
 </html>
