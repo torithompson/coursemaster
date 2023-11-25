@@ -72,7 +72,7 @@ public class Initialize implements CommandLineRunner {
         courseRepo.save(new Course("CS301", "Advanced Algorithms", instructorRepo.findById(4), studentRepo.findAll(),
                         "2023-09-20", null));
 
-        // Instructor
+        // Admin
         adminRepo.save(new Admin("Boss", "coolboss", "admin", "Barrie", "Responsible",
                 "cool.boss@coursemaster.com",
                 "343-987-3645", "over the rainbow", "nowhere", "ontario", "k3e3e3",
