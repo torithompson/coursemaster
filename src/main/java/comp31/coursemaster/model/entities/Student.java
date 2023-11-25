@@ -14,6 +14,8 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
+// Trevor Withers
+
 @Entity
 @Table(name = "student")
 @EqualsAndHashCode(callSuper = false)
