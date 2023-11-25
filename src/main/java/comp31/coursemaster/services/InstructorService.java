@@ -17,23 +17,23 @@ public class InstructorService {
     InstructorRepo instructorRepo;
     CourseRepo courseRepo;
 
+    // construct instructor service
     public InstructorService(InstructorRepo instructorRepo, CourseRepo courseRepo) {
         this.instructorRepo = instructorRepo;
         this.courseRepo = courseRepo;
     }
 
+    // find an instructor by their id
     public Instructor findById(int id) {
         return instructorRepo.findById(id);
     }
 
+    // create an assignment
     public void CreateAssignment() {
         new Assignment();
     }
 
-    public Instructor getInstructor(int id) {
-        return instructorRepo.findById(id);
-    }
-
+    // get all courses
     public List<Course> getAllCourses() {
         return courseRepo.findAll();
     }
