@@ -2,7 +2,6 @@ package comp31.coursemaster.services;
 
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
-
 import comp31.coursemaster.model.entities.User;
 
 /*

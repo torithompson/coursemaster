@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import comp31.coursemaster.model.entities.User;
 
+//Author: Tori Thompson & Trevor Withers
 @Repository
 public interface UserRepo extends CrudRepository<User, Integer> {
     @Query("SELECT u.id FROM User u WHERE u.username = :username")

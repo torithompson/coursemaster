@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class InstructorController {
     InstructorService instructorService;
 
+    // controller constructor
     public InstructorController(InstructorService instructorService) {
         this.instructorService = instructorService;
     }

@@ -14,6 +14,7 @@ import jakarta.persistence.OneToMany;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+//Tori Thompson/Trevor Withers/Ethan Watson
 @Entity
 @Data
 @NoArgsConstructor

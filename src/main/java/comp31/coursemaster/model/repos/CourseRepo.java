@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import comp31.coursemaster.model.entities.Course;
 
+//Ethan Watson
 @Repository
 public interface CourseRepo extends CrudRepository<Course, Integer> {
 
