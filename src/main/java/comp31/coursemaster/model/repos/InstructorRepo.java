@@ -14,7 +14,7 @@ public interface InstructorRepo extends CrudRepository<Instructor, Integer> {
     // find instructor by passed id
     public Instructor findById(int id);
 
-    //
+    // find all instructors
     public List<Instructor> findAll();
 
 }

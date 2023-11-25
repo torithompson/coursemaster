@@ -1,4 +1,3 @@
-//author: Fidy Fiaferana, Emma Lavigne, Ethan Watson, Tori Thompson, Trevor Withers
 
 package comp31.coursemaster;
 
@@ -19,6 +18,7 @@ import comp31.coursemaster.model.repos.StudentRepo;
 /*
  * Initialize 
  * Initializes the database with hardcoded data  
+ * authors: Fidy Fiaferana, Emma Lavigne, Ethan Watson, Tori Thompson, Trevor Withers
  */
 @Component
 public class Initialize implements CommandLineRunner {
