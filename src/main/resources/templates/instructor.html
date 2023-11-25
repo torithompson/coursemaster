@@ -8,12 +8,14 @@
     <title>Instructor</title>
 </head>
 
+<!-- Ethan Watson -->
+
 <body>
     <div th:insert="~{fragments/frags :: header}" class="header">
     </div>
     <h2>Instructor Page</h2>
 
-    <table border="solid 1px">
+    <table border="solid">
         <thead>
             <td>Username</td>
             <td>Password</td>
@@ -30,39 +32,38 @@
             <td>Courses</td>
             <td>Assignments</td>
         </thead>
-        <tr th:each="instructor,row:${instructors}">
-            <td th:text="${instructor.username}"></td>
-            <td th:text="${instructor.password}"></td>
-            <td th:text="${instructor.permissions}"></td>
-            <td th:text="${instructor.firstName}"></td>
-            <td th:text="${instructor.lastName}"></td>
-            <td th:text="${instructor.email}"></td>
-            <td th:text="${instructor.phoneNumber}"></td>
-            <td th:text="${instructor.address}"></td>
-            <td th:text="${instructor.city}"></td>
-            <td th:text="${instructor.province}"></td>
-            <td th:text="${instructor.postalCode}"></td>
-            <td th:text="${instructor.country}"></td>
-            <!-- <td th:text="${instructor.courses}"></td> -->
-            <!-- <td th:text="${instructor.assignments}"></td> -->
+        <tr>
+            <td th:text="${i.username}"></td>
+            <td th:text="${i.password}"></td>
+            <td th:text="${i.permissions}"></td>
+            <td th:text="${i.firstName}"></td>
+            <td th:text="${i.lastName}"></td>
+            <td th:text="${i.email}"></td>
+            <td th:text="${i.phoneNumber}"></td>
+            <td th:text="${i.address}"></td>
+            <td th:text="${i.city}"></td>
+            <td th:text="${i.province}"></td>
+            <td th:text="${i.postalCode}"></td>
+            <td th:text="${i.country}"></td>
         </tr>
     </table>
+
     <a href="/courses">View courses</a>
 
     <h3>Create New Assignment</h3>
     <form action="/createAssignment">
         <label for="assignmentName">Assignment Name</label>
         <input type="text" name="assignmentName" id="">
-
+        <br>
         <label for="assignmentDescription">Assignment Description</label>
         <input type="text" name="assignmentDescription">
-
+        <br>
         <label for="assignmentDueDate">Due Date</label>
         <input type="text" name="assignmentDueDate">
-
+        <br>
         <label for=""></label>
         <input type="text" name="" id="">
-
+        <br>
         <input type="submit" value="Create Assignment">
     </form>
 

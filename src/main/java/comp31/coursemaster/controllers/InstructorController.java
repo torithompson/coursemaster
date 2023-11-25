@@ -5,10 +5,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import comp31.coursemaster.model.entities.Assignment;
-import comp31.coursemaster.model.entities.Instructor;
 import comp31.coursemaster.services.InstructorService;
 import org.springframework.web.bind.annotation.PostMapping;
 
+// Ethan Watson
 
 @Controller
 public class InstructorController {
@@ -20,14 +20,8 @@ public class InstructorController {
 
     @GetMapping("/instructor")
     public String getInstructor(Model model) {
-        model.addAttribute("instructor", new Instructor());
+        model.addAttribute("instructor", instructorService.getInstructor(1));
         return "instructor";
-    }
-
-    @GetMapping("/courses")
-    public String getCourses(Model model) {
-        model.addAttribute("courses", instructorService.findAll());
-        return "courses";
     }
 
     @GetMapping("/assignments")
@@ -36,7 +30,7 @@ public class InstructorController {
     }
 
     @PostMapping("/createAssignment")
-    public Assignment createAssignment(Assignment assignment) {
-        return assignment;
+    public String createAssignment(Assignment assignment) {
+        return "redirect:/instructor";
     }
 }
