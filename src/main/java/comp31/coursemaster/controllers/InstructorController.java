@@ -1,5 +1,6 @@
 package comp31.coursemaster.controllers;
 
+import org.springframework.data.domain.Window;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -38,7 +39,7 @@ public class InstructorController {
     }
 
     @PostMapping("/createAssignment")
-    public String createAssignment(Assignment assignment) {
-        return "redirect:/instructor";
+    public String createAssignment(@RequestParam int id) {
+        return "redirect:/instructor?id=" + id + "&uploadSuccess";
     }
 }
