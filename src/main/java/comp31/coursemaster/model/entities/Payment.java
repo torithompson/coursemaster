@@ -1,3 +1,5 @@
+// author: Fidy Fiaferana
+
 package comp31.coursemaster.model.entities;
 
 import jakarta.persistence.Column;
