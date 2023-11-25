@@ -11,6 +11,7 @@ import comp31.coursemaster.model.entities.Instructor;
 
 @Repository
 public interface InstructorRepo extends CrudRepository<Instructor, Integer> {
+    // find instru
     public Instructor findById(int id);
 
     public List<Instructor> findAll();

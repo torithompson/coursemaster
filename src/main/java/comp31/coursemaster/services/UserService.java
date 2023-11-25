@@ -10,6 +10,8 @@ import comp31.coursemaster.model.repos.CourseRepo;
 import comp31.coursemaster.model.repos.StudentRepo;
 import comp31.coursemaster.model.repos.UserRepo;
 
+// Tori Thompson & Trevor Withers
+// User service class to handle user related functions such as adding, updating, and finding users
 @Service
 public class UserService {
     StudentRepo studentRepo;
@@ -42,9 +44,9 @@ public class UserService {
         return courseRepo.findCourseByStudent_Id(student_id);
     }
 
-    public void uploadAssignment() {
-        
-    }
+    // to be added later
+    // public void uploadAssignment() {
+    // }
 
     public Integer findUserIdByUserName(String username) {
         return userRepo.findIdByUsername(username);
