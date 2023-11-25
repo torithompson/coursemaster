@@ -24,14 +24,6 @@ public class UserService {
         this.userRepo = userRepo;
     }
 
-    public boolean addUser() {
-        return true;
-    }
-
-    public boolean updateUser() {
-        return true;
-    }
-
     public Iterable<Student> findStudents() {
         return studentRepo.findAll();
     }

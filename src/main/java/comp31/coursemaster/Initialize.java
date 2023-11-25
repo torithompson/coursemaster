@@ -37,10 +37,6 @@ public class Initialize implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        // Add your initialization code here
-
-
-
         // Students
         studentRepo.save(
                 new Student("Bob", "password", "student", "Bob", "Smith", "bob.smith@school.com",
