@@ -13,6 +13,8 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
+// Ethan Watson
+
 @Entity
 @Table(name = "instructor")
 @EqualsAndHashCode(callSuper = false)
@@ -27,6 +29,7 @@ public class Instructor extends User {
     @OneToMany(mappedBy = "instructor")
     private List<Course> courses;
 
+    // instructor constructor
     public Instructor(String username, String password, String permissions,
             String firstName, String lastName, String email, String phoneNumber,
             String address, String city, String province, String postalCode,

@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 import comp31.coursemaster.model.entities.Assignment;
 import comp31.coursemaster.model.entities.Course;
 import comp31.coursemaster.model.entities.Instructor;
-import comp31.coursemaster.model.entities.Student;
 import comp31.coursemaster.model.repos.CourseRepo;
 import comp31.coursemaster.model.repos.InstructorRepo;
 
@@ -25,14 +24,6 @@ public class InstructorService {
 
     public Instructor findById(int id) {
         return instructorRepo.findById(id);
-    }
-
-    public List<Course> GetAssignedCourses() {
-        return null;
-    }
-
-    public List<Student> GetAssignedStudents() {
-        return null;
     }
 
     public void CreateAssignment() {
