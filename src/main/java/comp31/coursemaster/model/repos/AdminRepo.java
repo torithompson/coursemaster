@@ -1,3 +1,5 @@
+//Author: Emma Lavigne
+
 package comp31.coursemaster.model.repos;
 
 import org.springframework.data.repository.CrudRepository;

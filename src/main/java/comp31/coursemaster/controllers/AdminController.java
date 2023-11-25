@@ -1,3 +1,5 @@
+//Author: Emma Lavigne
+
 package comp31.coursemaster.controllers;
 
 import org.springframework.stereotype.Controller;

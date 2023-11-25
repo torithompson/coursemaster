@@ -1,3 +1,5 @@
+//Author: Emma Lavigne
+
 package comp31.coursemaster.model.entities;
 
 import jakarta.persistence.Entity;
