@@ -15,6 +15,8 @@ import org.springframework.util.StringUtils;
 
 import comp31.coursemaster.services.UserService;
 
+// Trevor Withers
+
 @Controller
 public class StudentController {
     UserService userService;
