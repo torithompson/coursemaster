@@ -1,5 +1,7 @@
 package comp31.coursemaster;
 
+import java.util.Arrays;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -47,12 +49,12 @@ public class Initialize implements CommandLineRunner {
 
         studentRepo.save(new Student("Alice", "password", "student", "Alice", "Johnson", "alice.johnson@school.com",
                 "555-111-1111", "456 Main St", "Springfield", "Illinois", "62701", "USA",
-                        paymentRepo.findAll(), courseRepo.findAll()));
+                        null, null));
 
         studentRepo.save(new Student("Charlie", "password", "student", "Charlie", "Brown", "charlie.brown@school.com",
                 "555-222-2222", "789 Oak St", "Rivertown", "Mississippi", "12345", "USA",
-                        paymentRepo.findAll(), courseRepo.findAll()));
-
+                        null, null));
+        //instructor
         instructorRepo.save(new Instructor("Charles", "password", "instructor", "Charles", "Cuthbert",
                 "charles.cuthbert@coursemaster.com",
                         "343-222-2222", "123 test st", "napanee", "ontario", "k3e3e3", "Canada", null));
@@ -82,5 +84,30 @@ public class Initialize implements CommandLineRunner {
                         "Alice", "Johnson"));
         paymentRepo.save(new Payment(studentRepo.findStudentById(3), 0, 0,
                         "Charlie", "Brown"));
+
+
+        Student bob = studentRepo.findStudentById(1);
+        Student alice = studentRepo.findStudentById(2);
+        Student charlie = studentRepo.findStudentById(3);
+
+        Instructor charles = instructorRepo.findById(4);
+
+
+        bob.setCourses(courseRepo.findCourseByStudent_Id(1));
+        bob.setPayments(Arrays.asList(paymentRepo.findPaymentByStudentId(1)));
+
+
+        alice.setCourses(courseRepo.findCourseByStudent_Id(2));
+        alice.setPayments(Arrays.asList(paymentRepo.findPaymentByStudentId(2)));
+
+
+        charlie.setCourses(courseRepo.findCourseByStudent_Id(3));
+        charlie.setPayments(Arrays.asList(paymentRepo.findPaymentByStudentId(3)));
+                studentRepo.save(bob);
+        studentRepo.save(alice);
+        studentRepo.save(charlie);
+
+        charles.setCourses(Arrays.asList(courseRepo.findCourseById(1), courseRepo.findCourseById(2),courseRepo.findCourseById(3),courseRepo.findCourseById(4)));
+        instructorRepo.save(charles);
     }
 }
