@@ -16,6 +16,8 @@ import org.springframework.util.StringUtils;
 
 import comp31.coursemaster.services.UserService;
 
+// Trevor Withers
+
 @Controller
 @RequestMapping
 public class StudentController {

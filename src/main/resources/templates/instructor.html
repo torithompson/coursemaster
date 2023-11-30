@@ -8,12 +8,14 @@
     <title>Instructor</title>
 </head>
 
+<!-- Ethan Watson -->
+
 <body>
     <div th:insert="~{fragments/frags :: header}" class="header">
     </div>
     <h2>Instructor Page</h2>
 
-    <table border="solid 1px">
+    <table border="solid">
         <thead>
             <th>Employee ID</th>
             <th>Username</th>
@@ -28,10 +30,8 @@
             <th>Province</th>
             <th>Postal Code</th>
             <th>Country</th>
-            <!-- <th>Courses</th>
-            <th>Assignments</th> -->
         </thead>
-        <tr th:each="instructor,row:${instructor}">
+        <tr>
             <td th:text="${instructor_id}"></td>
             <td th:text="${instructor.username}"></td>
             <td th:text="${instructor.password}"></td>
@@ -45,15 +45,15 @@
             <td th:text="${instructor.province}"></td>
             <td th:text="${instructor.postalCode}"></td>
             <td th:text="${instructor.country}"></td>
-            <!-- <td th:text="${instructor.courses}"></td> -->
-            <!-- <td th:text="${instructor.assignments}"></td> -->
         </tr>
     </table>
+
     <a href="/courses">View courses</a>
     <br><br>
     <h3>Create New Assignment</h3>
-    <form action="/createAssignment">
+    <form id="createForm" action="/createAssignment" method="post">
         <label for="assignmentName">Assignment Name</label>
+        <input type="text" name="id" th:value="${instructor_id}" style="display: none;">
         <input type="text" name="assignmentName" id="">
         <br>
         <label for="assignmentDescription">Assignment Description</label>
@@ -62,15 +62,37 @@
         <label for="assignmentDueDate">Due Date</label>
         <input type="text" name="assignmentDueDate">
         <br>
-        <!-- <label for=""></label>
-        <input type="text" name="" id=""> -->
 
         <input type="submit" value="Create Assignment">
     </form>
+    <br>
+    <br>
+    <div id="successMessage" style="display: none; color: green;">
+        File successfully uploaded!
+    </div>
+    <br>
+    <script>
+        // Add this script to handle the success message
+        document.getElementById('createForm').addEventListener('submit', function () {
+            document.getElementById('successMessage').style.display = 'none'; // Hide the success message on each submit
 
+            // You can add further logic here if needed
+
+        });
+
+            // Add this script to handle the success message display after a successful upload
+            // This assumes you have a query parameter 'uploadSuccess' in the redirect URL
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.has('uploadSuccess')) {
+                document.getElementById('successMessage').style.display = 'block';
+                setTimeout(function () {
+                    document.getElementById('successMessage').style.display = 'none';
+                }, 5000);
+            }
+        </script>
 
     <div th:insert="~{fragments/frags :: logout}">
-    </div>
+
 </body>
 
 </html>

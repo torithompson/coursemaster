@@ -6,6 +6,8 @@ import org.springframework.stereotype.Repository;
 
 import comp31.coursemaster.model.entities.Student;
 
+// Trevor Withers
+
 @Repository
 public interface StudentRepo extends CrudRepository<Student, Integer> {
     public List<Student> findAll();

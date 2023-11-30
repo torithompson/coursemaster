@@ -39,13 +39,7 @@ public class Initialize implements CommandLineRunner {
     public void run(String... args) throws Exception {
         // Add your initialization code here
 
-        // Payment
-        Payment payment = new Payment(studentRepo.findStudentById(3), 100, 1, "Bob", "Smith");
-        paymentRepo.save(payment);
-        paymentRepo.save(new Payment(studentRepo.findStudentById(4), 20000, 1,
-        "Alice", "Johnson"));
-        paymentRepo.save(new Payment(studentRepo.findStudentById(5), 0, 0,
-        "Charlie", "Brown"));
+
 
         // Students
         studentRepo.save(
@@ -78,10 +72,18 @@ public class Initialize implements CommandLineRunner {
         courseRepo.save(new Course("CS301", "Advanced Algorithms", instructorRepo.findById(4), studentRepo.findAll(),
                         "2023-09-20", null));
 
-        // Instructor
+        // Admin
         adminRepo.save(new Admin("Boss", "coolboss", "admin", "Barrie", "Responsible",
                 "cool.boss@coursemaster.com",
                 "343-987-3645", "over the rainbow", "nowhere", "ontario", "k3e3e3",
-                "Canada"));
+                        "Canada"));
+
+        // Payment
+        Payment payment = new Payment(studentRepo.findStudentById(1), 100, 1, "Bob", "Smith");
+        paymentRepo.save(payment);
+        paymentRepo.save(new Payment(studentRepo.findStudentById(2), 20000, 1,
+                        "Alice", "Johnson"));
+        paymentRepo.save(new Payment(studentRepo.findStudentById(3), 0, 0,
+                        "Charlie", "Brown"));
     }
 }

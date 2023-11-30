@@ -11,6 +11,8 @@ import comp31.coursemaster.model.entities.Student;
 import comp31.coursemaster.model.repos.CourseRepo;
 import comp31.coursemaster.model.repos.InstructorRepo;
 
+// Ethan Watson
+
 @Service
 public class InstructorService {
     InstructorRepo instructorRepo;
@@ -21,7 +23,7 @@ public class InstructorService {
         this.courseRepo = courseRepo;
     }
 
-    public Instructor findById(int id){
+    public Instructor findById(int id) {
         return instructorRepo.findById(id);
     }
 
@@ -37,7 +39,11 @@ public class InstructorService {
         new Assignment();
     }
 
-    public List<Course> findAllCourses() {
+    public Instructor getInstructor(int id) {
+        return instructorRepo.findById(id);
+    }
+
+    public List<Course> getAllCourses() {
         return courseRepo.findAll();
     }
 }

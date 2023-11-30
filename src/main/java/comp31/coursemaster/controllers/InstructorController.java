@@ -1,5 +1,6 @@
 package comp31.coursemaster.controllers;
 
+import org.springframework.data.domain.Window;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+// Ethan Watson
 
 @Controller
 @RequestMapping
@@ -29,7 +31,7 @@ public class InstructorController {
 
     @GetMapping("/courses")
     public String getCourses(Model model) {
-        model.addAttribute("courses", instructorService.findAllCourses());
+        model.addAttribute("courses", instructorService.getAllCourses());
         return "courses";
     }
 
@@ -39,7 +41,7 @@ public class InstructorController {
     }
 
     @PostMapping("/createAssignment")
-    public Assignment createAssignment(Assignment assignment) {
-        return assignment;
+    public String createAssignment(@RequestParam int id) {
+        return "redirect:/instructor?id=" + id + "&uploadSuccess";
     }
 }
