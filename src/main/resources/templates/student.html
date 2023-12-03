@@ -1,81 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" th:href="@{/css/styles.css}">
-        <title>Document</title>
-    </head>
-    <!-- Trevor Withers -->
-    <body>
-        <div th:insert="~{fragments/frags :: header}" class="header">
-        </div>
-        <table border="solid">
-            <thead>
-                <th>Student Number</th>
-                <th>User Name</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Email</th>
-                <th>Phone</th>
-                <th>Address</th>
-                <th>Postal Code</th>
-                <th>City</th>
-                <th>Province</th>
-                <th>Country</th>
-            </thead>
-            <tr>
-                <td th:text="${student_id}"></td>
-                <td th:text="${student.username}"></td>
-                <td th:text="${student.firstName}"></td>
-                <td th:text="${student.lastName}"></td>
-                <td th:text="${student.email}"></td>
-                <td th:text="${student.phoneNumber}"></td>
-                <td th:text="${student.address}"></td>
-                <td th:text="${student.postalCode}"></td>
-                <td th:text="${student.city}"></td>
-                <td th:text="${student.province}"></td>
-                <td th:text="${student.country}"></td>
-            </tr>
-        </table>
-        <br>
-        <br>
-        <form id="uploadForm" action="/uploadAssignment" method="post" enctype="multipart/form-data">
-            <select name="course">
-                <option value="" disabled selected>Select Course</option>
-                <option th:each="course:${courses}" th:text="${course.name}" required="true"></option>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <title>Document</title>
+</head>
+<!-- Trevor Withers -->
+
+<body>
+    <div th:insert="~{fragments/frags :: header}" class="header">
+    </div>
+    <table border="solid">
+        <thead>
+            <th>Student Number</th>
+            <th>User Name</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Address</th>
+            <th>Postal Code</th>
+            <th>City</th>
+            <th>Province</th>
+            <th>Country</th>
+        </thead>
+        <tr>
+            <td th:text="${student_id}"></td>
+            <td th:text="${student.username}"></td>
+            <td th:text="${student.firstName}"></td>
+            <td th:text="${student.lastName}"></td>
+            <td th:text="${student.email}"></td>
+            <td th:text="${student.phoneNumber}"></td>
+            <td th:text="${student.address}"></td>
+            <td th:text="${student.postalCode}"></td>
+            <td th:text="${student.city}"></td>
+            <td th:text="${student.province}"></td>
+            <td th:text="${student.country}"></td>
+        </tr>
+    </table>
+    <br>
+    <br>
+    <form action="/fetchAssignments" method="GET">
+        <select name="course">
+            <option value="" disabled selected>Select Course</option>
+            <option th:each="course:${courses}" th:text="${course.name}" required="true" type="submit"></option>
             </select>
-            <input type="file" name="file" id="fileInput" style="display: none;" />
             <input type="text" name="id" th:value="${student_id}" style="display: none;">
-            <button type="button" onclick="document.getElementById('fileInput').click();">Upload Assignment</button>
-            <button type="submit">Submit</button>
-        </form>
-        <br>
-        <div id="successMessage" style="display: none; color: green;">
-            File successfully uploaded!
-        </div>
-        <br>
-        <script>
-            // Add this script to handle the success message
-            document.getElementById('uploadForm').addEventListener('submit', function () {
-                document.getElementById('successMessage').style.display = 'none'; // Hide the success message on each submit
-        
-                // You can add further logic here if needed
-        
-            });
-        
-            // Add this script to handle the success message display after a successful upload
-            // This assumes you have a query parameter 'uploadSuccess' in the redirect URL
-            const urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.has('uploadSuccess')) {
-                document.getElementById('successMessage').style.display = 'block';
-                setTimeout(function () {
-                    document.getElementById('successMessage').style.display = 'none';
-                }, 5000);
-            }
-        </script>
-        <a href="/payment">View payment balance</a>
-        <div th:insert="~{fragments/frags :: logout}">
-        </div>
+            </form>
+            <form th:if="${param.fetchSuccess}" id=" uploadForm" action="/uploadAssignment" method="post"
+                enctype="multipart/form-data">
+                <select name="assignment">
+                    <option value="" disabled selected>Select Assignment</option>
+                    <option th:each="assignment:${assignments}" th:text="${assignment.name}" required="true"></option>
+                </select>
+                <input type="file" name="file" id="fileInput" style="display: none;" />
+                <input type="text" name="id" th:value="${student_id}" style="display: none;">
+                <button type="button" onclick="document.getElementById('fileInput').click();">Upload Assignment</button>
+                <button type="submit">Submit</button>
+            </form>
+            <br>
+            <div id="successMessage" style="display: none; color: green;">
+                File successfully uploaded!
+            </div>
+            <br>
+            <script>
+                // Add this script to handle the success message
+                document.getElementById('uploadForm').addEventListener('submit', function () {
+                    document.getElementById('successMessage').style.display = 'none'; // Hide the success message on each submit
+
+                    // You can add further logic here if needed
+
+                });
+
+                // Add this script to handle the success message display after a successful upload
+                // This assumes you have a query parameter 'uploadSuccess' in the redirect URL
+                const urlParams = new URLSearchParams(window.location.search);
+                if (urlParams.has('uploadSuccess')) {
+                    document.getElementById('successMessage').style.display = 'block';
+                    setTimeout(function () {
+                        document.getElementById('successMessage').style.display = 'none';
+                    }, 5000);
+                }
+            </script>
+    <form action="/payment" method="GET">
+        <input type="text" name="id" th:value="${student_id}" style="display: none;">
+        <button type="submit">View Payments</button>
+    </form>
+    <div th:insert="~{fragments/frags :: logout}">
+    </div>
     </body>
+
 </html>

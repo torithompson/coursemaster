@@ -23,6 +23,7 @@ public class Course {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "course_id")
     Integer id;
+    @Column(name = "course_name")
     String name;
     String description;
     String startDate;

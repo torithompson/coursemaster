@@ -35,7 +35,7 @@ public class TransactionService {
     }
 
     public void updatePayment(Integer id, Integer updateAmt) {
-        Payment payment = paymentRepo.findPaymentByStudentId(id);
+        Payment payment = paymentRepo.findByPaymentId(id);
         updateAmt = payment.getAmountOwed() - updateAmt;
         payment.setAmountOwed(updateAmt);
         if (updateAmt <= 0)

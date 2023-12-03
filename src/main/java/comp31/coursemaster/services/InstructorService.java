@@ -37,4 +37,8 @@ public class InstructorService {
     public List<Course> getAllCourses() {
         return courseRepo.findAll();
     }
+
+    public Course findCourseByName(String name) {
+        return courseRepo.findCourseByName(name);
+    }
 }

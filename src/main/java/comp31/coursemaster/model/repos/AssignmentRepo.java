@@ -10,5 +10,8 @@ import comp31.coursemaster.model.entities.Assignment;
 // Trevor Withers
 @Repository
 public interface AssignmentRepo extends CrudRepository<Assignment, Integer> {
-    public List<Assignment> findAssignmentByCourseId(Integer id);
+
+    public List<Assignment> findAssignmentByCourseName(String name);
+
+    public Assignment findAssignmentById(Integer id);
 }

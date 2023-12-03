@@ -26,21 +26,21 @@ public class Assignment {
     String path;
 
     @ManyToOne
-    @JoinColumn(name = "course_id")
+    @JoinColumn(name = "course_name")
     private Course course;
 
-    @ManyToOne
-    @JoinColumn(name = "instructor_id")
-    private Instructor instructor;
+    // @ManyToOne
+    // @JoinColumn(name = "instructor_id")
+    // private Instructor instructor;
 
     public Assignment(String name, String description, String dueDate, String grade, Course course,
-            String path, Instructor instructor) {
+            String path) {
         this.name = name;
         this.description = description;
         this.dueDate = dueDate;
         this.grade = grade;
         this.course = course;
         this.path = path;
-        this.instructor = instructor;
+        // this.instructor = instructor;
     }
 }

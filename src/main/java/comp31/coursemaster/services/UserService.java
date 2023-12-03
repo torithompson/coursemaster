@@ -36,9 +36,9 @@ public class UserService {
         return courseRepo.findCourseByStudent_Id(student_id);
     }
 
-    // to be added later
-    // public void uploadAssignment() {
-    // }
+    public List<Course> findCourseByInstructorId(Integer instructor_id) {
+        return courseRepo.findCourseByInstructorId(instructor_id);
+    }
 
     public Integer findUserIdByUserName(String username) {
         return userRepo.findIdByUsername(username);

@@ -16,27 +16,33 @@
     <h1>Billing and Payments</h1>
     <p>Here you can pay your bills</p>
     <form action="/payment" method="post">
-        <label for="studentid">Student ID</label>
-        <input type="text" name="studentid">
+        <label for="paymentid">Payment ID</label>
+        <input type="text" name="paymentid">
         <br>
         <label for="amount">Amount</label>
         <input type="text" name="amount">
+        <input type="text" name="id" th:value="${Payments.paymentId}" style="display: none;">
         <br>
         <input type="submit" value="Pay">
     </form>
 
     <table border="solid">
         <thead>
+            <th>Payment ID</th>
             <th>First Name</th>
             <th>Last name</th>
             <th>Amount Owed</th>
             <th>Payment status</th>
         </thead>
         <tr th:each="payment:${Payments}">
+            <td th:text="${payment.paymentId}"></td>
             <td th:text="${payment.firstName}"></td>
             <td th:text="${payment.lastName}"></td>
             <td th:text="${payment.amountOwed}"></td>
-            <td th:text="${payment.paymentStatus}"></td>
+            <td>
+                <span th:if="${payment.paymentStatus == 1}">Balance Unpaid</span>
+                <span th:unless="${payment.paymentStatus == 1}">Balance Paid</span>
+            </td>
         </tr>
     </table>
     <div th:insert="~{fragments/frags :: logout}">

@@ -22,7 +22,7 @@ public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "payment_id")
-    Integer id;
+    Integer paymentId;
     Integer amountOwed;
     Integer PaymentStatus;
     String firstName;

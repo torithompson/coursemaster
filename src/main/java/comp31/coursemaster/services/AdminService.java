@@ -7,17 +7,20 @@ import org.springframework.stereotype.Service;
 import comp31.coursemaster.model.entities.Admin;
 import comp31.coursemaster.model.entities.User;
 import comp31.coursemaster.model.repos.AdminRepo;
+import comp31.coursemaster.model.repos.UserRepo;
 
 @Service
 public class AdminService {
     AdminRepo adminRepo;
+    UserRepo userRepo;
 
-    public AdminService(AdminRepo adminRepo) {
+    public AdminService(AdminRepo adminRepo, UserRepo userRepo) {
         this.adminRepo = adminRepo;
+        this.userRepo = userRepo;
     }
 
-    //creates new user account with administrative privileges 
-    public void addAdmin(
+    // creates new user account
+    public void addUser(
         String username, 
         String password, 
         String permissions,
@@ -30,24 +33,24 @@ public class AdminService {
         String province, 
         String postalCode,
         String country) {
-            Admin admin = new Admin();
-            admin.setUsername(username);
-            admin.setPassword(password);
-            admin.setPermissions(permissions);
-            admin.setFirstName(firstName);
-            admin.setLastName(lastName);
-            admin.setEmail(email);
-            admin.setPhoneNumber(phoneNumber);
-            admin.setAddress(address);
-            admin.setCity(city);
-            admin.setProvince(province);
-            admin.setPostalCode(postalCode);
-            admin.setCountry(country);
-            adminRepo.save(admin);
+        User user = new User();
+        user.setUsername(username);
+        user.setPassword(password);
+        user.setPermissions(permissions);
+        user.setFirstName(firstName);
+        user.setLastName(lastName);
+        user.setEmail(email);
+        user.setPhoneNumber(phoneNumber);
+        user.setAddress(address);
+        user.setCity(city);
+        user.setProvince(province);
+        user.setPostalCode(postalCode);
+        user.setCountry(country);
+        userRepo.save(user);
     }
 
-    public void addAdmin(Admin admin) {
-        adminRepo.save(admin);
+    public void addUser(User user) {
+        userRepo.save(user);
     }
 
     //removes a user account from the system
@@ -62,6 +65,10 @@ public class AdminService {
 
     public Iterable<Admin> findAdmins() {
         return adminRepo.findAll();
+    }
+
+    public Iterable<User> findUsers() {
+        return userRepo.findAll();
     }
     
 }

@@ -7,8 +7,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import comp31.coursemaster.model.entities.Admin;
+import comp31.coursemaster.model.entities.User;
 import comp31.coursemaster.services.AdminService;
 
 @Controller
@@ -21,17 +22,18 @@ public class AdminController {
         this.adminService = adminService;
     }
 
-    @GetMapping({"/admin", "/add-admin"})
+    @GetMapping({ "/admin", "/add-user" })
     public String getAdmin(Model model) {
-        model.addAttribute("admin", new Admin());
-        model.addAttribute("allAdmins", adminService.findAdmins());
+        model.addAttribute("user", new User());
+        model.addAttribute("allUsers", adminService.findUsers());
         return "admin";
     }
 
-    @PostMapping("/add-admin")
-    public String addNewAdmin(Model model, Admin admin) {
-        admin.setPermissions("admin");
-        adminService.addAdmin(admin);
+    @PostMapping("/add-user")
+    public String addNewAdmin(Model model, User user,
+            @RequestParam(value = "permissions", required = true) String permissions) {
+        user.setPermissions(permissions);
+        adminService.addUser(user);
         return "redirect:/admin";
     }
 

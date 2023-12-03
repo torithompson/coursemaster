@@ -5,11 +5,13 @@ import java.util.Arrays;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import comp31.coursemaster.model.entities.Assignment;
 import comp31.coursemaster.model.entities.Admin;
 import comp31.coursemaster.model.entities.Course;
 import comp31.coursemaster.model.entities.Instructor;
 import comp31.coursemaster.model.entities.Payment;
 import comp31.coursemaster.model.entities.Student;
+import comp31.coursemaster.model.repos.AssignmentRepo;
 import comp31.coursemaster.model.repos.AdminRepo;
 import comp31.coursemaster.model.repos.CourseRepo;
 import comp31.coursemaster.model.repos.InstructorRepo;
@@ -24,14 +26,17 @@ import comp31.coursemaster.model.repos.StudentRepo;
 @Component
 public class Initialize implements CommandLineRunner {
     AdminRepo adminRepo;
+    AssignmentRepo assignmentRepo;
     StudentRepo studentRepo;
     PaymentRepo paymentRepo;
     InstructorRepo instructorRepo;
     CourseRepo courseRepo;
 
-    public Initialize(AdminRepo adminRepo, StudentRepo studentRepo, PaymentRepo paymentRepo,
+    public Initialize(AdminRepo adminRepo, AssignmentRepo assignmentRepo, StudentRepo studentRepo,
+                    PaymentRepo paymentRepo,
             InstructorRepo instructorRepo, CourseRepo courseRepo) {
         this.adminRepo = adminRepo;
+        this.assignmentRepo = assignmentRepo;
         this.studentRepo = studentRepo;
         this.paymentRepo = paymentRepo;
         this.instructorRepo = instructorRepo;
@@ -71,11 +76,16 @@ public class Initialize implements CommandLineRunner {
         courseRepo.save(new Course("CS301", "Advanced Algorithms", instructorRepo.findById(4), studentRepo.findAll(),
                         "2023-09-20", null));
 
+        // Assignments
+        assignmentRepo.save(new Assignment("#5", "System Flowcharts", "2023-12-06", "80",
+                        courseRepo.findNameById(3), null));
+
         // Admin
         adminRepo.save(new Admin("Boss", "coolboss", "admin", "Barrie", "Responsible",
                 "cool.boss@coursemaster.com",
                 "343-987-3645", "over the rainbow", "nowhere", "ontario", "k3e3e3",
                         "Canada"));
+
 
         // Payment
         Payment payment = new Payment(studentRepo.findStudentById(1), 100, 1, "Bob", "Smith");

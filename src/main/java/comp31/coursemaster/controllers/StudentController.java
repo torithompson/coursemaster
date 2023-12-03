@@ -1,10 +1,5 @@
 package comp31.coursemaster.controllers;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.nio.file.Path;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,9 +7,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.util.StringUtils;
 
 import comp31.coursemaster.services.UserService;
+import comp31.coursemaster.services.AssignmentService;
 
 // Trevor Withers
 
@@ -22,9 +17,11 @@ import comp31.coursemaster.services.UserService;
 @RequestMapping
 public class StudentController {
     UserService userService;
+    AssignmentService assignmentService;
 
-    public StudentController(UserService userService) {
+    public StudentController(UserService userService, AssignmentService assignmentService) {
         this.userService = userService;
+        this.assignmentService = assignmentService;
     }
 
     @GetMapping("/student")
@@ -35,36 +32,24 @@ public class StudentController {
         return "student";
     }
 
-    
     @PostMapping("/uploadAssignment")
     public String handleFileUpload(@RequestParam("file") MultipartFile file, @RequestParam Integer id) {
 
         if (file.isEmpty()) {
-            // Handle empty file
-            
             return "redirect:/student?id=" + id + "&uploadFailedEmpty";
-        }
-
-        try {
-            // Get the file name and normalize it
-            String fileName = StringUtils.cleanPath(file.getOriginalFilename());
-
-            // Specify the directory where you want to save the file
-            Path uploadDir = Paths.get("src").resolve("main").resolve("java").resolve("comp31").resolve("coursemaster").resolve("uploads");
-            Path filePath = uploadDir.resolve(fileName);
-            // Copy the file to the upload directory
-            Files.copy(file.getInputStream(), filePath);
-
+        } else {
 
             // You can now perform further processing or save the file path to a database
+            assignmentService.uploadAssignment(file, id);
 
-        } catch (IOException e) {
-
-            // Handle file I/O exception
-            return "redirect:/student?id=" + id + "&uploadFailedCatch";
+            return "redirect:/student?id=" + id + "&uploadSuccess"; // Redirect to a relevant page after file upload
         }
+    }
 
-        return "redirect:/student?id=" + id + "&uploadSuccess"; // Redirect to a relevant page after file upload
+    @GetMapping("/fetchAssignments")
+    public String fetchAssignments(@RequestParam String courseName, Model model, @RequestParam Integer id) {
+        model.addAttribute("assignments", assignmentService.findAssignments(courseName));
+        return "redirect:/student?id=" + id + "&fetchSuccess";
     }
 
     // @GetMapping("/enrolledCourses")
