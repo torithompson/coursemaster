@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import comp31.coursemaster.model.entities.User;
@@ -14,6 +15,7 @@ import comp31.coursemaster.services.LoginService;
  * Author: Tori Thompson
  */
 @Controller
+@RequestMapping
 public class MainController {
     LoginService loginService;
 

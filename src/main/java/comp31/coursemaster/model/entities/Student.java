@@ -17,7 +17,6 @@ import lombok.NoArgsConstructor;
 // Trevor Withers
 
 @Entity
-@Table(name = "student")
 @EqualsAndHashCode(callSuper = false)
 @Data
 @NoArgsConstructor
