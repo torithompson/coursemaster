@@ -43,53 +43,61 @@
     <br>
     <br>
     <form action="/fetchAssignments" method="GET">
-        <select name="course">
-            <option value="" disabled selected>Select Course</option>
-            <option th:each="course:${courses}" th:text="${course.name}" required="true" type="submit"></option>
-            </select>
-            <input type="text" name="id" th:value="${student_id}" style="display: none;">
-            </form>
-            <form th:if="${param.fetchSuccess}" id=" uploadForm" action="/uploadAssignment" method="post"
-                enctype="multipart/form-data">
-                <select name="assignment">
-                    <option value="" disabled selected>Select Assignment</option>
-                    <option th:each="assignment:${assignments}" th:text="${assignment.name}" required="true"></option>
-                </select>
-                <input type="file" name="file" id="fileInput" style="display: none;" />
-                <input type="text" name="id" th:value="${student_id}" style="display: none;">
-                <button type="button" onclick="document.getElementById('fileInput').click();">Upload Assignment</button>
-                <button type="submit">Submit</button>
-            </form>
-            <br>
-            <div id="successMessage" style="display: none; color: green;">
-                File successfully uploaded!
-            </div>
-            <br>
-            <script>
-                // Add this script to handle the success message
-                document.getElementById('uploadForm').addEventListener('submit', function () {
-                    document.getElementById('successMessage').style.display = 'none'; // Hide the success message on each submit
+        <input type="text" name="id" th:value="${student_id}" style="display: none;">
+        <select name="course" onchange="this.form.submit()">
+            <option disabled selected>Select Course</option>
+            <option th:each="course : ${courses}" th:text="${course.name}" th:value="${course.name}"
+                th:selected="${selectedCourse == course.name}"></option>
+        </select>
+    </form>
 
-                    // You can add further logic here if needed
+    <form th:if="${param.course}" id="uploadForm" action="/uploadAssignment" method="post"
+        enctype="multipart/form-data">
+        <select name="assignId">
+            <option value="" disabled selected>Select Assignment</option>
+            <option th:each="assignment:${assignments}" th:text="${assignment.name}" th:value="${assignment.id}"
+                required="true">
+            </option>
+        </select>
+        <input type="file" name="file" id="fileInput" style="display: none;" />
+        <input type="text" name="id" th:value="${student_id}" style="display: none;">
+        <input type="text" name="id" th:value="${courseId}" style="display: none;">
+        <button type="button" onclick="document.getElementById('fileInput').click();">Upload Assignment</button>
+        <button type="submit">Submit</button>
+    </form>
+    <br>
+    <div id="successMessage" style="display: none; color: green;">
+        File successfully uploaded!
+    </div>
+    <br>
+    <script>
+        // Add this script to handle the success message
+        document.getElementById('uploadForm').addEventListener('submit', function () {
+            document.getElementById('successMessage').style.display = 'none'; // Hide the success message on each submit
 
-                });
+            // You can add further logic here if needed
 
-                // Add this script to handle the success message display after a successful upload
-                // This assumes you have a query parameter 'uploadSuccess' in the redirect URL
-                const urlParams = new URLSearchParams(window.location.search);
-                if (urlParams.has('uploadSuccess')) {
-                    document.getElementById('successMessage').style.display = 'block';
-                    setTimeout(function () {
-                        document.getElementById('successMessage').style.display = 'none';
-                    }, 5000);
-                }
-            </script>
+        });
+
+        // Add this script to handle the success message display after a successful upload
+        // This assumes you have a query parameter 'uploadSuccess' in the redirect URL
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('uploadSuccess')) {
+            document.getElementById('successMessage').style.display = 'block';
+            setTimeout(function () {
+                document.getElementById('successMessage').style.display = 'none';
+            }, 5000);
+        }
+    </script>
+
+    <a th:href="@{/assignments}">View Uploaded Assignments</a>
+    <br><br>
     <form action="/payment" method="GET">
         <input type="text" name="id" th:value="${student_id}" style="display: none;">
         <button type="submit">View Payments</button>
     </form>
     <div th:insert="~{fragments/frags :: logout}">
     </div>
-    </body>
+</body>
 
 </html>

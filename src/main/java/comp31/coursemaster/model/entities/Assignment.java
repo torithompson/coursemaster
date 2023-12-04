@@ -23,24 +23,19 @@ public class Assignment {
     String description;
     String dueDate;
     String grade;
-    String path;
+    String filePath;
 
     @ManyToOne
-    @JoinColumn(name = "course_name")
+    @JoinColumn(name = "course_id")
     private Course course;
 
-    // @ManyToOne
-    // @JoinColumn(name = "instructor_id")
-    // private Instructor instructor;
-
     public Assignment(String name, String description, String dueDate, String grade, Course course,
-            String path) {
+            String filePath) {
         this.name = name;
         this.description = description;
         this.dueDate = dueDate;
         this.grade = grade;
         this.course = course;
-        this.path = path;
-        // this.instructor = instructor;
+        this.filePath = filePath;
     }
 }

@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import comp31.coursemaster.model.entities.Assignment;
 import comp31.coursemaster.model.entities.Course;
-import comp31.coursemaster.model.repos.CourseRepo;
 import comp31.coursemaster.services.AssignmentService;
 import comp31.coursemaster.services.InstructorService;
 import comp31.coursemaster.services.UserService;
@@ -51,8 +50,8 @@ public class InstructorController {
 
     // Handling the GET request to /assignments
     @GetMapping("/assignments")
-    public String getAssignments(Model model, @RequestParam String course) {
-        model.addAttribute("assignments", assignmentService.findAssignments(course));
+    public String getAssignments(Model model) {
+        model.addAttribute("assignments", assignmentService.findAll());
         return "assignments";
     }
 
@@ -64,7 +63,7 @@ public class InstructorController {
 
     // Handling the POST request to /createAssignment
     @PostMapping("/createAssignment")
-    public String createAssignment(@RequestParam int id, @RequestParam String name, @RequestParam String description,
+    public String createAssignment(@RequestParam Integer instructor_id, @RequestParam String name, @RequestParam String description,
             @RequestParam String dueDate, @RequestParam String courseName) {
         Assignment assignment = new Assignment();
         assignment.setName(name);
@@ -73,7 +72,7 @@ public class InstructorController {
         assignment.setCourse(instructorService.findCourseByName(courseName));
         assignmentService.createAssignment(assignment);
 
-        return "redirect:/instructor?id=" + id + "&uploadSuccess";
+        return "redirect:/instructor?id=" + instructor_id + "&uploadSuccess";
     }
 
 }

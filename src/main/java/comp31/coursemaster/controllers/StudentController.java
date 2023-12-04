@@ -1,5 +1,7 @@
 package comp31.coursemaster.controllers;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import comp31.coursemaster.services.UserService;
+import comp31.coursemaster.model.entities.Assignment;
 import comp31.coursemaster.services.AssignmentService;
+import comp31.coursemaster.services.InstructorService;
 
 // Trevor Withers
 
@@ -18,47 +22,38 @@ import comp31.coursemaster.services.AssignmentService;
 public class StudentController {
     UserService userService;
     AssignmentService assignmentService;
+    InstructorService instructorService;
 
-    public StudentController(UserService userService, AssignmentService assignmentService) {
+    public StudentController(UserService userService, AssignmentService assignmentService, InstructorService instructorService) {
         this.userService = userService;
         this.assignmentService = assignmentService;
+        this.instructorService = instructorService;
     }
 
     @GetMapping("/student")
-    public String getStudent(Model model, @RequestParam Integer id) {
+    public String getStudent(Model model, @RequestParam Integer id, @RequestParam(name="courseId", required=false) Integer courseId, @RequestParam(name = "course", required = false) String selectedCourse) {
         model.addAttribute("student_id", id);
         model.addAttribute("student", userService.findStudentById(id));
         model.addAttribute("courses", userService.findCourses(id));
+        model.addAttribute("selectedCourse", selectedCourse);
+        List<Assignment> assignments = assignmentService.findAssignments(courseId);
+        model.addAttribute("assignments", assignments);
         return "student";
     }
 
     @PostMapping("/uploadAssignment")
-    public String handleFileUpload(@RequestParam("file") MultipartFile file, @RequestParam Integer id) {
-
+    public String handleFileUpload(@RequestParam("file") MultipartFile file, @RequestParam Integer id, @RequestParam Integer assignId) {
         if (file.isEmpty()) {
             return "redirect:/student?id=" + id + "&uploadFailedEmpty";
         } else {
-
-            // You can now perform further processing or save the file path to a database
-            assignmentService.uploadAssignment(file, id);
-
-            return "redirect:/student?id=" + id + "&uploadSuccess"; // Redirect to a relevant page after file upload
+            assignmentService.uploadAssignment(file, assignId);
+            return "redirect:/student?id=" + id + "&uploadSuccess";
         }
     }
 
     @GetMapping("/fetchAssignments")
-    public String fetchAssignments(@RequestParam String courseName, Model model, @RequestParam Integer id) {
-        model.addAttribute("assignments", assignmentService.findAssignments(courseName));
-        return "redirect:/student?id=" + id + "&fetchSuccess";
+    public String fetchAssignments(@RequestParam String course, Model model, @RequestParam Integer id) {
+        Integer courseId = instructorService.findCourseByName(course).getId();
+        return "redirect:/student?id=" + id + "&course=" + course + "&courseId=" + courseId;
     }
-
-    // @GetMapping("/enrolledCourses")
-    // public String getEnrolledCourses() {
-    //     return "student";
-    // }
-
-    // @GetMapping("/courseInfo")
-    // public String getCourseInfo() {
-    //     return "student";
-    // }
 }

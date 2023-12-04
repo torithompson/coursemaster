@@ -28,23 +28,34 @@ public class AssignmentService {
         assignmentRepo.save(assignment);
     }
 
-    public List<Assignment> findAssignments(String courseName) {
-        return assignmentRepo.findAssignmentByCourseName(courseName);
+    public List<Assignment> findAssignments(Integer id) {
+        return assignmentRepo.findAssignmentByCourseId(id);
     }
 
-    public void uploadAssignment(MultipartFile file, Integer id) {
+    public void uploadAssignment(MultipartFile file, Integer assignId) {
         try {
             String fileName = StringUtils.cleanPath(file.getOriginalFilename());
             Path uploadDir = Paths.get("src").resolve("main").resolve("java").resolve("comp31").resolve("coursemaster")
                     .resolve("uploads");
             Path filePath = uploadDir.resolve(fileName);
             Files.copy(file.getInputStream(), filePath);
-            Assignment assignment = assignmentRepo.findAssignmentById(id);
-            assignment.setPath(filePath.toString());
+            Assignment assignment = assignmentRepo.findAssignmentById(assignId);
+            assignment.setFilePath(filePath.toString());
             assignmentRepo.save(assignment);
+
+            Assignment assignment2 = assignmentRepo.findAssignmentById(assignId);
+            System.out.println(assignment2.getFilePath());
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+    }
+
+	public List<Assignment> findAll() {
+		return assignmentRepo.findAll();
+	}
+
+    public Assignment findAssignmentById(Integer id) {
+        return assignmentRepo.findAssignmentById(id);
     }
 }

@@ -2,6 +2,7 @@ package comp31.coursemaster.model.repos;
 
 import java.util.List;
 
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -15,7 +16,8 @@ public interface CourseRepo extends CrudRepository<Course, Integer> {
 
     public Course findCourseById(Integer id);
 
-    public Course findNameById(Integer id);
+    @Query("Select name from Course where id = :id")
+    public String findNameById(Integer id);
 
     public List<Course> findCourseByStudent_Id(Integer student_Id);
 

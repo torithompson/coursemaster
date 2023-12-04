@@ -77,8 +77,8 @@ public class Initialize implements CommandLineRunner {
                         "2023-09-20", null));
 
         // Assignments
-        assignmentRepo.save(new Assignment("#5", "System Flowcharts", "2023-12-06", "80",
-                        courseRepo.findNameById(3), null));
+        assignmentRepo.save(new Assignment("#Make a flowchart", "System Flowcharts", "2023-12-06", null,
+                        courseRepo.findCourseById(3), null));
 
         // Admin
         adminRepo.save(new Admin("Boss", "coolboss", "admin", "Barrie", "Responsible",
@@ -113,7 +113,7 @@ public class Initialize implements CommandLineRunner {
 
         charlie.setCourses(courseRepo.findCourseByStudent_Id(3));
         charlie.setPayments(Arrays.asList(paymentRepo.findPaymentByStudentId(3)));
-                studentRepo.save(bob);
+        studentRepo.save(bob);
         studentRepo.save(alice);
         studentRepo.save(charlie);
 

@@ -57,27 +57,27 @@
         </select>
         <button>View Assignments</button>
     </form>
-    
+
     </form>
     <br><br>
     <h3>Create New Assignment</h3>
     <form id="createForm" action="/createAssignment" method="post">
         <label for="course">Course</label>
-        <select name="course">
+        <select name="courseName">
             <option value="" disabled selected>Select Course</option>
-            <option th:each="course:${courses}" th:text="${course.name}" th:value="selected" required="true"></option>
+            <option th:each="course:${courses}" th:text="${course.name}" required="true"></option>
         </select>
         <br>
         <label for="assignmentName">Assignment Name</label>
-        <input type="text" th:value="${name}">
+        <input type="text" th:value="${name}" name="name">
         <br>
         <label for="assignmentDescription">Assignment Description</label>
-        <input type="text" th:value="${assignmentDescription}">
+        <input type="text" th:value="${assignmentDescription}" name="description">
         <br>
         <label for="assignmentDueDate">Due Date</label>
-        <input type="text" th:value="${assignmentDueDate}">
+        <input type="text" th:value="${assignmentDueDate}" name="dueDate">
         <br>
-        <input type="text" th:value="${instructor_id}" style="display: none;">
+        <input type="text" th:value="${instructor_id}" name="instructor_id">
 
 
         <input type="submit" value="Create Assignment">
@@ -97,16 +97,16 @@
 
         });
 
-            // Add this script to handle the success message display after a successful upload
-            // This assumes you have a query parameter 'uploadSuccess' in the redirect URL
-            const urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.has('uploadSuccess')) {
-                document.getElementById('successMessage').style.display = 'block';
-                setTimeout(function () {
-                    document.getElementById('successMessage').style.display = 'none';
-                }, 5000);
-            }
-        </script>
+        // Add this script to handle the success message display after a successful upload
+        // This assumes you have a query parameter 'uploadSuccess' in the redirect URL
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('uploadSuccess')) {
+            document.getElementById('successMessage').style.display = 'block';
+            setTimeout(function () {
+                document.getElementById('successMessage').style.display = 'none';
+            }, 5000);
+        }
+    </script>
 
     <div th:insert="~{fragments/frags :: logout}">
 
