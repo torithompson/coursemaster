@@ -44,7 +44,7 @@
     <br>
     <h3>Submit Assignments</h3>
     <h5>Select course from below:</h5>
-    <form action="/fetchAssignments" method="GET">
+    <form action="/fetchAssignments" method="GET" id="course-dropdown">
         <input type="text" name="id" th:value="${student_id}" style="display: none;">
         <select name="course" onchange="this.form.submit()">
             <option disabled selected>Select Course</option>
@@ -75,9 +75,9 @@
         File already exists!
     </div>
     <br>
-    <script>
+    <script type="text/javascript">
         // Add this script to handle the success message
-        document.getElementById('uploadForm').addEventListener('submit', function () {
+        document.getElementById('course-dropdown').addEventListener('submit', function () {
             document.getElementById('successMessage').style.display = 'none'; // Hide the success message on each submit
             document.getElementById('errorMessage').style.display = 'none'; // Hide the error message on each submit
         });
@@ -89,14 +89,13 @@
             setTimeout(function () {
                 document.getElementById('successMessage').style.display = 'none';
             }, 5000);
-        } else if (urlParams.has('uploadError')) {
+        } else if (urlParams.has('uploadFailed')) {
             document.getElementById('errorMessage').style.display = 'block';
             setTimeout(function () {
                 document.getElementById('errorMessage').style.display = 'none';
             }, 5000);
         }
     </script>
-
     <br>
     <h3>View Assignments and Payments</h3>
     <br>
