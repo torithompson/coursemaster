@@ -2,6 +2,7 @@ package comp31.coursemaster.services;
 
 import java.util.List;
 import java.io.IOException;
+import java.nio.file.FileAlreadyExistsException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.Path;
@@ -32,7 +33,7 @@ public class AssignmentService {
         return assignmentRepo.findAssignmentByCourseId(id);
     }
 
-    public void uploadAssignment(MultipartFile file, Integer assignId) {
+    public String uploadAssignment(MultipartFile file, Integer assignId) {
         try {
             String fileName = StringUtils.cleanPath(file.getOriginalFilename());
             Path uploadDir = Paths.get("src").resolve("main").resolve("java").resolve("comp31").resolve("coursemaster")
@@ -42,12 +43,10 @@ public class AssignmentService {
             Assignment assignment = assignmentRepo.findAssignmentById(assignId);
             assignment.setFilePath(filePath.toString());
             assignmentRepo.save(assignment);
-
-            Assignment assignment2 = assignmentRepo.findAssignmentById(assignId);
-            System.out.println(assignment2.getFilePath());
+            return "uploadSuccess";
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
+            return "uploadFailed";
         }
     }
 
@@ -57,5 +56,9 @@ public class AssignmentService {
 
     public Assignment findAssignmentById(Integer id) {
         return assignmentRepo.findAssignmentById(id);
+    }
+
+    public List<Assignment> findAssignmentsByCourse(Integer courseId) {
+        return assignmentRepo.findAssignmentByCourseId(courseId);
     }
 }

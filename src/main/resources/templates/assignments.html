@@ -18,15 +18,20 @@
             <th>Assignment Name</th>
             <th>Assignment Description</th>
             <th>Due Date</th>
-            <th>Path</th>
+            <th>Submission</th>
         </thead>
-        <tr th:each="assignment:${assignments}">
-            <td th:text="${assignment.id}"></td>
-            <td th:text="${assignment.name}"></td>
-            <td th:text="${assignment.description}"></td>
-            <td th:text="${assignment.dueDate}"></td>
-            <td th:text="${assignment.filePath}"></td>
-        </tr>
+        <tbody>
+            <tr th:if="${#lists.isEmpty(assignments)}">
+                <td colspan="5">No assignments</td>
+            </tr>
+            <tr th:each="assignment : ${assignments}" th:if="${not #lists.isEmpty(assignments)}">
+                <td th:text="${assignment.id}"></td>
+                <td th:text="${assignment.name}"></td>
+                <td th:text="${assignment.description}"></td>
+                <td th:text="${assignment.dueDate}"></td>
+                <td th:text="${assignment.filePath}"></td>
+            </tr>
+        </tbody>
     </table>
 </body>
 

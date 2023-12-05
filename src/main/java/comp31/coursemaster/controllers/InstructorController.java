@@ -55,6 +55,12 @@ public class InstructorController {
         return "assignments";
     }
 
+    @GetMapping("/assignmentsByCourse")
+    public String getAssignmentsByCourse(Model model, @RequestParam Integer courseId) {
+        model.addAttribute("assignments", assignmentService.findAssignmentsByCourse(courseId));
+        return "assignments";
+    }
+
     @GetMapping("/selectCourse")
     public String selectCourse(Model model, Course course, @RequestParam int id) {
         model.addAttribute("course", course);

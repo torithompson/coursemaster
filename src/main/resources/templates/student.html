@@ -42,6 +42,8 @@
     </table>
     <br>
     <br>
+    <h3>Submit Assignments</h3>
+    <h5>Select course from below:</h5>
     <form action="/fetchAssignments" method="GET">
         <input type="text" name="id" th:value="${student_id}" style="display: none;">
         <select name="course" onchange="this.form.submit()">
@@ -69,27 +71,35 @@
     <div id="successMessage" style="display: none; color: green;">
         File successfully uploaded!
     </div>
+    <div id="errorMessage" style="display: none; color: red;">
+        File already exists!
+    </div>
     <br>
     <script>
         // Add this script to handle the success message
         document.getElementById('uploadForm').addEventListener('submit', function () {
             document.getElementById('successMessage').style.display = 'none'; // Hide the success message on each submit
-
-            // You can add further logic here if needed
-
+            document.getElementById('errorMessage').style.display = 'none'; // Hide the error message on each submit
         });
 
-        // Add this script to handle the success message display after a successful upload
-        // This assumes you have a query parameter 'uploadSuccess' in the redirect URL
+        // handle the success message display after a successful upload
         const urlParams = new URLSearchParams(window.location.search);
         if (urlParams.has('uploadSuccess')) {
             document.getElementById('successMessage').style.display = 'block';
             setTimeout(function () {
                 document.getElementById('successMessage').style.display = 'none';
             }, 5000);
+        } else if (urlParams.has('uploadError')) {
+            document.getElementById('errorMessage').style.display = 'block';
+            setTimeout(function () {
+                document.getElementById('errorMessage').style.display = 'none';
+            }, 5000);
         }
     </script>
 
+    <br>
+    <h3>View Assignments and Payments</h3>
+    <br>
     <a th:href="@{/assignments}">View Uploaded Assignments</a>
     <br><br>
     <form action="/payment" method="GET">

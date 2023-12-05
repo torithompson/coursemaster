@@ -46,8 +46,11 @@ public class StudentController {
         if (file.isEmpty()) {
             return "redirect:/student?id=" + id + "&uploadFailedEmpty";
         } else {
-            assignmentService.uploadAssignment(file, assignId);
-            return "redirect:/student?id=" + id + "&uploadSuccess";
+            String uploadVerified = assignmentService.uploadAssignment(file, assignId);
+            if (uploadVerified.equals("uploadFailed")) {
+                return "redirect:/student?id=" + id + "&uploadFailed";
+            } else
+                return "redirect:/student?id=" + id + "&uploadSuccess";
         }
     }
 
