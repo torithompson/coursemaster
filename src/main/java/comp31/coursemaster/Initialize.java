@@ -78,7 +78,25 @@ public class Initialize implements CommandLineRunner {
 
         // Assignments
         assignmentRepo.save(new Assignment("#Make a flowchart", "System Flowcharts", "2023-12-06", null,
+                        courseRepo.findCourseById(1), null));
+        assignmentRepo.save(new Assignment("#Math test", "Math test", "2023-12-06", null, courseRepo.findCourseById(1),
+                        null));
+        assignmentRepo.save(new Assignment("PHYS201_A1", "Introduction to Mechanics", "2023-09-07", null,
+                        courseRepo.findCourseById(2), null));
+        assignmentRepo.save(new Assignment("PHYS201_A2", "Introduction to Thermodynamics", "2023-09-12", null,
+                        courseRepo.findCourseById(2), null));
+        assignmentRepo.save(new Assignment("ENG101_E1", "Persuasive Essay", "2023-09-12", null,
                         courseRepo.findCourseById(3), null));
+        assignmentRepo.save(new Assignment("ENG101_E2", "Research Paper", "2023-09-17", null, courseRepo.findCourseById(3),
+                        null));
+        assignmentRepo.save(new Assignment("HIST202_H1", "Ancient Civilizations Research Paper", "2023-09-17", null,
+                        courseRepo.findCourseById(4), null));
+        assignmentRepo.save(new Assignment("HIST202_H2", "World War II Research Paper", "2023-09-22", null,
+                        courseRepo.findCourseById(4), null));
+        assignmentRepo.save(new Assignment("CS301_P1", "Dynamic Programming Exercise", "2023-09-22", null,
+                        courseRepo.findCourseById(5), null));
+        assignmentRepo.save(new Assignment("CS301_P2", "Algorithms Exercise", "2023-09-27", null,
+                        courseRepo.findCourseById(5), null));
 
         // Admin
         adminRepo.save(new Admin("Boss", "coolboss", "admin", "Barrie", "Responsible",
