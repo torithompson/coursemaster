@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import comp31.coursemaster.services.UserService;
 import comp31.coursemaster.model.entities.Assignment;
@@ -31,28 +32,53 @@ public class StudentController {
     }
 
     @GetMapping("/student")
-    public String getStudent(Model model, @RequestParam Integer id, @RequestParam(name="courseId", required=false) Integer courseId, @RequestParam(name = "course", required = false) String selectedCourse) {
+    public String getStudent(
+        Model model,
+        @RequestParam Integer id,
+        @RequestParam(required = false) Integer courseId,
+        @RequestParam(name = "course", required = false) String selectedCourse,
+        @RequestParam(required = false) String uploadFailed,
+        @RequestParam(required = false) String uploadFailedEmpty,
+        @RequestParam(required = false) String uploadSuccess) {
+
         model.addAttribute("student_id", id);
         model.addAttribute("student", userService.findStudentById(id));
         model.addAttribute("courses", userService.findCourses(id));
         model.addAttribute("selectedCourse", selectedCourse);
         List<Assignment> assignments = assignmentService.findAssignments(courseId);
         model.addAttribute("assignments", assignments);
+
+        // Add attributes related to file upload status
+        model.addAttribute("uploadFailed", uploadFailed);
+        model.addAttribute("uploadFailedEmpty", uploadFailedEmpty);
+        model.addAttribute("uploadSuccess", uploadSuccess);
+
         return "student";
     }
 
-    @PostMapping("/uploadAssignment")
-    public String handleFileUpload(@RequestParam("file") MultipartFile file, @RequestParam Integer id, @RequestParam Integer assignId) {
+
+    @PostMapping("/student")
+    public String handleFileUpload(
+        @RequestParam MultipartFile file,
+        @RequestParam Integer id,
+        @RequestParam Integer assignId,
+        RedirectAttributes redirectAttributes) {
+
         if (file.isEmpty()) {
-            return "redirect:/student?id=" + id + "&uploadFailedEmpty";
+            redirectAttributes.addAttribute("id", id);
+            return "redirect:/student?uploadFailedEmpty";
         } else {
             String uploadVerified = assignmentService.uploadAssignment(file, assignId);
             if (uploadVerified.equals("uploadFailed")) {
-                return "redirect:/student?id=" + id + "&uploadFailed";
-            } else
-                return "redirect:/student?id=" + id + "&uploadSuccess";
+                redirectAttributes.addAttribute("id", id);
+                return "redirect:/student?uploadFailed";
+            } else {
+                redirectAttributes.addAttribute("id", id);
+                return "redirect:/student?uploadSuccess";
+            }
         }
     }
+
 
     @GetMapping("/fetchAssignments")
     public String fetchAssignments(@RequestParam String course, Model model, @RequestParam Integer id) {

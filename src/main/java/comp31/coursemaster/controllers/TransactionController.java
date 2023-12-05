@@ -25,8 +25,8 @@ public class TransactionController {
     }
 
     @PostMapping("/payment")
-    public String processPayment(@RequestParam(name = "amount") Integer amount,
-            @RequestParam(name = "paymentid") Integer paymentid, @RequestParam Integer id) {
+    public String processPayment(@RequestParam Integer amount,
+            @RequestParam Integer paymentid, @RequestParam Integer id) {
         transactionService.updatePayment(paymentid, amount);
         return "redirect:/payment?id=" + id;
     }

@@ -31,7 +31,7 @@ public class AdminController {
 
     @PostMapping("/add-user")
     public String addNewAdmin(Model model, User user,
-            @RequestParam(value = "permissions", required = true) String permissions) {
+            @RequestParam(required = true) String permissions) {
         user.setPermissions(permissions);
         adminService.addUser(user);
         return "redirect:/admin";
