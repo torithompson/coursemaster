@@ -66,15 +66,15 @@ public class StudentController {
 
         if (file.isEmpty()) {
             redirectAttributes.addAttribute("id", id);
-            return "redirect:/student?uploadFailedEmpty";
+            return "redirect:/student?id=" + id + "&uploadFailedEmpty";
         } else {
             String uploadVerified = assignmentService.uploadAssignment(file, assignId);
             if (uploadVerified.equals("uploadFailed")) {
                 redirectAttributes.addAttribute("id", id);
-                return "redirect:/student?uploadFailed";
+                return "redirect:/student?id=" + id + "&uploadFailed";
             } else {
                 redirectAttributes.addAttribute("id", id);
-                return "redirect:/student?uploadSuccess";
+                return "redirect:/student?id=" + id+ "&uploadSuccess";
             }
         }
     }

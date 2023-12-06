@@ -29,7 +29,14 @@
                 <td th:text="${assignment.name}"></td>
                 <td th:text="${assignment.description}"></td>
                 <td th:text="${assignment.dueDate}"></td>
-                <td th:text="${assignment.filePath}"></td>
+                <td>
+                    <span th:if="${assignment.filePath != null}">
+                        <a id="downloadLink" th:href="@{/downloadFile(id=${assignment.id})}" th:text="Download"></a>
+                    </span>
+                    <span th:if="${assignment.filePath == null}">No submission</span>
+                </td>
+
+
             </tr>
         </tbody>
     </table>

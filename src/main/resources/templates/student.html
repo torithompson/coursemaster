@@ -76,8 +76,11 @@
     <br>
     <h3>View Assignments and Payments</h3>
     <br>
-    <a th:href="@{/assignments}">View Uploaded Assignments</a>
-    <br><br>
+    <form action="/submittedAssignments" method="GET">
+        <input type="text" name="id" th:value="${student_id}" style="display: none;">
+        <button type="submit">View Uploaded Assignments</button>
+    </form>
+    <br>
     <form action="/payment" method="GET">
         <input type="text" name="id" th:value="${student_id}" style="display: none;">
         <button type="submit">View Payments</button>

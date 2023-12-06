@@ -12,7 +12,6 @@ import org.springframework.web.multipart.MultipartFile;
 import comp31.coursemaster.model.entities.Assignment;
 import comp31.coursemaster.model.repos.AssignmentRepo;
 import comp31.coursemaster.model.repos.StudentRepo;
-import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
 
 // Trevor Withers & Tori Thompson
@@ -38,8 +37,7 @@ public class AssignmentService {
     public String uploadAssignment(MultipartFile file, Integer assignId) {
         try {
             String fileName = StringUtils.cleanPath(file.getOriginalFilename());
-            Path uploadDir = Paths.get("src").resolve("main").resolve("java").resolve("comp31").resolve("coursemaster")
-                    .resolve("uploads");
+            Path uploadDir = Paths.get("uploads");
             Path filePath = uploadDir.resolve(fileName);
             Files.copy(file.getInputStream(), filePath);
             Assignment assignment = assignmentRepo.findAssignmentById(assignId);
@@ -63,5 +61,9 @@ public class AssignmentService {
 
     public List<Assignment> findAssignmentsByCourse(Integer courseId) {
         return assignmentRepo.findAssignmentByCourseId(courseId);
+    }
+
+    public List<Assignment> findSubmittedAssignments() {
+        return assignmentRepo.findByFilePathIsNotNull();
     }
 }

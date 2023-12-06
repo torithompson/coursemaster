@@ -77,7 +77,7 @@ public class Initialize implements CommandLineRunner {
                         "2023-09-20", null));
 
         // Assignments
-        assignmentRepo.save(new Assignment("#Make a flowchart", "System Flowcharts", "2023-12-06", null,
+        assignmentRepo.save(new Assignment("#Make a math chart", "Charts", "2023-12-06", null,
                         courseRepo.findCourseById(1), null));
         assignmentRepo.save(new Assignment("#Math test", "Math test", "2023-12-06", null, courseRepo.findCourseById(1),
                         null));

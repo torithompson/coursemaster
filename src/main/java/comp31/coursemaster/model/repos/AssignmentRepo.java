@@ -16,4 +16,6 @@ public interface AssignmentRepo extends CrudRepository<Assignment, Integer> {
     public List<Assignment> findAssignmentByCourseId(Integer id);
 
     public List<Assignment> findAll();
+
+    public List<Assignment> findByFilePathIsNotNull();
 }

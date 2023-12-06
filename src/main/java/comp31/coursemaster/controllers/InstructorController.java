@@ -1,5 +1,10 @@
 package comp31.coursemaster.controllers;
 
+import org.springframework.core.io.FileSystemResource;
+import org.springframework.core.io.Resource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -55,6 +60,12 @@ public class InstructorController {
         return "assignments";
     }
 
+    @GetMapping("/submittedAssignments")
+    public String getSubmittedAssignments(Model model) {
+        model.addAttribute("assignments", assignmentService.findSubmittedAssignments());
+        return "assignments";
+    }
+
     @GetMapping("/assignmentsByCourse")
     public String getAssignmentsByCourse(Model model, @RequestParam Integer courseId) {
         model.addAttribute("assignments", assignmentService.findAssignmentsByCourse(courseId));
@@ -79,6 +90,30 @@ public class InstructorController {
         assignmentService.createAssignment(assignment);
 
         return "redirect:/instructor?id=" + instructor_id + "&uploadSuccess";
+    }
+
+        // Handling the GET request to /downloadFile
+        @GetMapping("/downloadFile")
+        public ResponseEntity<Resource> downloadFile(@RequestParam Integer id) {
+        // Retrieve assignment by ID
+        Assignment assignment = assignmentService.findAssignmentById(id);
+
+        // Check if assignment and file path are not null
+        if (assignment != null && assignment.getFilePath() != null) {
+            // Create a Resource object to represent the file
+            Resource resource = new FileSystemResource(assignment.getFilePath());
+
+            // Set the content type based on the file type
+            String contentType = "application/octet-stream";
+
+            return ResponseEntity.ok()
+                    .contentType(MediaType.parseMediaType(contentType))
+                    .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + resource.getFilename() + "\"")
+                    .body(resource);
+        } else {
+            // Handle the case when assignment or file path is null
+            return ResponseEntity.notFound().build();
+        }
     }
 
 }
