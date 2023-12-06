@@ -23,7 +23,9 @@
         <input type="text" name="amount">
         <input type="text" name="id" th:value="${Payments.paymentId}" style="display: none;">
         <br>
-        <input type="submit" value="Pay">
+        <span th:unless="${Payments.amountOwed} == 0">
+            <input type="submit" value="Pay">
+        </span>
     </form>
 
     <table border="solid">
