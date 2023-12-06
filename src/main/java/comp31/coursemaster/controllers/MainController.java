@@ -47,6 +47,6 @@ public class MainController {
     // Handling the GET request to /logout
     @GetMapping("/logout")
     public String logout() {
-        return "redirect:/"; // Redirect to the root page
+        return "redirect:/login"; // Redirect to the root page
     }
 }
