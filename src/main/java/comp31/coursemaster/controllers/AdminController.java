@@ -33,7 +33,13 @@ public class AdminController {
     public String addNewAdmin(Model model, User user,
             @RequestParam(required = true) String permissions) {
         user.setPermissions(permissions);
-        adminService.addUser(user);
+        if (permissions.equals("admin")) {
+            adminService.addAdmin(user);
+        } else if (permissions.equals("instructor")) {
+            adminService.addInstructor(user);
+        } else {
+            adminService.addStudent(user);
+        }
         return "redirect:/admin";
     }
 
