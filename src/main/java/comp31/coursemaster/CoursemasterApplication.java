@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 First click "go to login"                                                   - login use case
 Sign in as "Boss"
-password is "Coolboss"
+password is "coolboss"
 
 Create a new user                                                           - Add new user use case
 to make it easier, none of the fields are required
