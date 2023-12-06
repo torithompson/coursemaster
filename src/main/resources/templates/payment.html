@@ -32,7 +32,7 @@
             <tr th:each="payment:${Payments}">
                 <td>
                     <input type="radio" th:name="paymentid" th:value="${payment.paymentId}"
-                        th:disabled="${payment.amountOwed eq 0}" required>
+                        th:disabled="${payment.amountOwed le 0}" required>
                 </td>
                 <td th:text="${payment.paymentId}"></td>
                 <td th:text="${payment.firstName}"></td>
@@ -44,7 +44,7 @@
                 </td>
             </tr>
         </table>
-        <span th:unless="${Payments.amountOwed} == 0">
+        <span th:if="${Payments.amountOwed} > 0">
             <input type="submit" value="Pay">
         </span>
     </form>
