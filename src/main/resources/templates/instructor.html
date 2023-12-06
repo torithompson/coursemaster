@@ -51,12 +51,12 @@
     <a href="/courses">View courses</a>
     <br><br>
     <form action="/assignmentsByCourse" method="GET">
-        <select name="courseId">
+        <select name="courseId" id="courseIdDropdown" onchange="checkDropdown()">
             <option value="" disabled selected>Select Course</option>
             <option th:each="course:${courses}" th:text="${course.name}" th:value="${course.id}" required="true">
             </option>
         </select>
-        <button>View Assignments</button>
+        <button disabled id="viewAssignments">View Assignments</button>
     </form>
 
     </form>
@@ -80,8 +80,7 @@
         <br>
         <input type="text" th:value="${instructor_id}" name="instructor_id" style="display:none">
 
-
-        <input type="submit" value="Create Assignment">
+        <input type="submit" value="Create Assignment" disabled>
     </form>
     <br>
     <div id="successMessage" style="display: none; color: green;">
@@ -104,6 +103,31 @@
                 document.getElementById('successMessage').style.display = 'none';
             }, 5000);
         }
+
+        // only enable view assignments button when a course is selected
+        function checkDropdown() {
+            var dropdown = document.getElementById('courseIdDropdown');
+            var submitButton = document.getElementById('viewAssignments');
+            submitButton.disabled = dropdown.value === '';
+        }
+
+        // only enable create assignment button when all fields in the form have a value
+        document.addEventListener('DOMContentLoaded', function () {
+            // Get form and submit button elements
+            var form = document.getElementById('createForm');
+            var submitButton = document.querySelector('#createForm input[type="submit"]');
+
+            // Attach event listener to form inputs
+            form.addEventListener('input', function () {
+                // Check if all text input fields have a non-empty value
+                var allFieldsFilled = Array.from(form.querySelectorAll('input[type="text"]')).every(function (element) {
+                    return element.value.trim() !== '';
+                });
+
+                // Enable or disable the submit button based on the condition
+                submitButton.disabled = !allFieldsFilled;
+            });
+        });
     </script>
 
     <div th:insert="~{fragments/frags :: logout}">
