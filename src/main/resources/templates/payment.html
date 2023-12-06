@@ -17,7 +17,7 @@
     <p>Here you can pay your bills</p>
     <form action="/payment" method="post">
         <label for="amount">Amount</label>
-        <input type="text" name="amount">
+        <input type="text" name="amount" required>
         <input type="text" name="id" th:value="${Payments.paymentId}" style="display: none;">
         <br>
         <table border="solid">
@@ -32,7 +32,7 @@
             <tr th:each="payment:${Payments}">
                 <td>
                     <input type="radio" th:name="paymentid" th:value="${payment.paymentId}"
-                        th:disabled="${payment.amountOwed eq 0}">
+                        th:disabled="${payment.amountOwed eq 0}" required>
                 </td>
                 <td th:text="${payment.paymentId}"></td>
                 <td th:text="${payment.firstName}"></td>
