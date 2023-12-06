@@ -37,9 +37,14 @@ a {
     margin-bottom: 10px;
 }
 
-#downloadLink{
-    padding: 5px!important;
-    margin: 0px!important;
+input:disabled,
+button:disabled {
+    background-color: #4caf4f80;
+}
+
+#downloadLink {
+    padding: 5px !important;
+    margin: 0px !important;
 }
 
 table {
@@ -79,11 +84,12 @@ select {
     border-radius: 4px;
     font-size: 14px;
     width: 200px;
-  }
+}
 
-  select:hover, select:focus {
+select:hover,
+select:focus {
     border-color: #3498db;
-  }
+}
 
 
 .header-container {
@@ -95,8 +101,8 @@ select {
     margin-left: -8px;
     margin-right: -8px;
     display: flex;
-        justify-content: space-between;
-        align-items: center;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .header-title {
@@ -108,10 +114,12 @@ select {
     margin: 10px 0;
     font-size: 18px;
 }
+
 .logout-container {
     margin-top: 40px;
-    margin-bottom:20px;
+    margin-bottom: 20px;
 }
+
 .back-button {
     margin-right: 10px;
 }
