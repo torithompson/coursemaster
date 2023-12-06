@@ -53,11 +53,6 @@ public class AdminService {
         userRepo.save(user);
     }
 
-    //removes a user account from the system
-    public void deleteUser(User user) {
-
-    }
-
     //updates the privileges of a user; add or revoke admin access 
     public void modifyPermissions(User user, String perm) {
 
