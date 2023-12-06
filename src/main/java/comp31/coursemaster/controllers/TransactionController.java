@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import comp31.coursemaster.model.entities.Payment;
 import comp31.coursemaster.services.TransactionService;
 
 @Controller
@@ -20,8 +21,13 @@ public class TransactionController {
 
     @GetMapping("/payment")
     public String getPayment(Model model, @RequestParam Integer id) {
-        model.addAttribute("Payments", transactionService.findPaymentByStudentId(id));
-        return "payment";
+        Payment payment = transactionService.findPaymentByStudentId(id);
+        if (payment != null) {
+            model.addAttribute("Payments", payment);
+            return "payment";
+        } else {
+            return "nopayments";
+        }
     }
 
     @PostMapping("/payment")
