@@ -15,9 +15,10 @@
     </div>
     <h1>Billing and Payments</h1>
     <p>Here you can pay your bills</p>
-    <form action="/payment" method="post">
+    <form action="/payment" method="post" onsubmit="return validatePayment()">
         <label for="amount">Amount</label>
-        <input type="text" name="amount" required>
+        <input type="number" name="amount" id="amountInput" required>
+        <input type="hidden" id="hiddenAmountOwed" th:value="${Payments.amountOwed}">
         <input type="text" name="id" th:value="${Payments.paymentId}" style="display: none;">
         <br>
         <table border="solid">
@@ -50,6 +51,19 @@
     </form>
     <div th:insert="~{fragments/frags :: logout}">
     </div>
+    <script th:inline="javascript">
+        function validatePayment() {
+            var enteredAmount = parseInt(document.getElementById('amountInput').value);
+            var amountOwed = parseInt(document.getElementById('hiddenAmountOwed').value);
+
+            if (enteredAmount > amountOwed) {
+                alert("Entered amount cannot be greater than the amount owed.");
+                return false; // Prevent form submission
+            }
+
+            return true; // Allow form submission
+        }
+    </script>
 </body>
 
 </html>

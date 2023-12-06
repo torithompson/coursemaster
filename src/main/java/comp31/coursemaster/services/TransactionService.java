@@ -14,18 +14,6 @@ public class TransactionService {
         this.paymentRepo = paymentRepo;
     }
 
-    public void processPayment() {
-
-    }
-
-    public void viewPaymentHistory() {
-
-    }
-
-    public void generatePaymentReport() {
-        
-    }
-
     public Iterable<Payment> findPayments() {
         return paymentRepo.findAll();
     }
