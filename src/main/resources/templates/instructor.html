@@ -19,32 +19,24 @@
         <thead>
             <th>Employee ID</th>
             <th>Username</th>
-            <th>Password</th>
             <th>Permissions</th>
             <th>First Name</th>
             <th>Last Name</th>
             <th>Email</th>
-            <th>Phone Number</th>
             <th>Address</th>
             <th>City</th>
             <th>Province</th>
-            <th>Postal Code</th>
-            <th>Country</th>
         </thead>
         <tr>
             <td th:text="${instructor_id}"></td>
             <td th:text="${instructor.username}"></td>
-            <td th:text="${instructor.password}"></td>
             <td th:text="${instructor.permissions}"></td>
             <td th:text="${instructor.firstName}"></td>
             <td th:text="${instructor.lastName}"></td>
             <td th:text="${instructor.email}"></td>
-            <td th:text="${instructor.phoneNumber}"></td>
             <td th:text="${instructor.address}"></td>
             <td th:text="${instructor.city}"></td>
             <td th:text="${instructor.province}"></td>
-            <td th:text="${instructor.postalCode}"></td>
-            <td th:text="${instructor.country}"></td>
         </tr>
     </table>
     <br>

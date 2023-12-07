@@ -6,14 +6,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /*Instructions to test:
 
 First click "go to login"                                                   - login use case
-Sign in as "Boss"
+Sign in with user id "Boss"
 password is "coolboss"
 
 Create a new user                                                           - Add new user use case
 to make it easier, none of the fields are required
 You can see the added user in the table below
 
-Click logout, this done not end the session, it simply returns to /login
+Click logout, this does not end the session, it simply returns to /login
 
 Login as an instructor - username "Charles", password is "password"  
 Click view courses to view the courses in the database
