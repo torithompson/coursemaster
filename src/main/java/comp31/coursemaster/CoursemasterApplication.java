@@ -28,13 +28,15 @@ view assignments, you should see 2 initialized ones and the one you just added
 Click back to go back to instructor page 
 click logout
 Login as a student now
-user id - "Alice", password is "password"
+user id - "Alice", password is "password" or
+user id - "Bob", password is "password" or
+user id - "Charlie", password is "password"
 
 Select a course from the dropdown and the assignments dropdown will populate
 select any assignment from the dropdown and click upload assignment, 
 choose a file from your computer and then click submit.                       - student submit assignment use case
 
-Now click uploaded assignments button, it should just show the one you uploaded
+Now click view uploaded assignments button, it should just show the one you uploaded
 
 Click back to go back to student page
 
