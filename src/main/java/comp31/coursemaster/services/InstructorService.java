@@ -1,10 +1,7 @@
 package comp31.coursemaster.services;
 
 import java.util.List;
-
 import org.springframework.stereotype.Service;
-
-import comp31.coursemaster.model.entities.Assignment;
 import comp31.coursemaster.model.entities.Course;
 import comp31.coursemaster.model.entities.Instructor;
 import comp31.coursemaster.model.repos.CourseRepo;
@@ -26,11 +23,6 @@ public class InstructorService {
     // find an instructor by their id
     public Instructor findById(int id) {
         return instructorRepo.findById(id);
-    }
-
-    // create an assignment
-    public void CreateAssignment() {
-        new Assignment();
     }
 
     // get all courses

@@ -58,11 +58,6 @@ public class AdminService {
         userRepo.save(user);
     }
 
-    /*
-    public void addUser(User user) {
-        userRepo.save(user);
-    }
-    */
     public void addAdmin( 
         String username, 
         String password, 
@@ -201,14 +196,6 @@ public class AdminService {
         instructorRepo.save(instructor);
     }
 
-    //updates the privileges of a user; add or revoke admin access 
-    public void modifyPermissions(User user, String perm) {
-
-    }
-
-    public Iterable<Admin> findAdmins() {
-        return adminRepo.findAll();
-    }
 
     public Iterable<User> findUsers() {
         return userRepo.findAll();
